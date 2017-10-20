@@ -1,0 +1,18 @@
+server:
+  port: 19303
+  context-path: /users
+
+spring:
+  profiles:
+    active: euraka_client,logback,mongo
+  application:
+      name: user-service
+  cloud:
+    config:
+      name: common-config
+      uri: http://localhost:19300/config
+
+eureka:
+  uri: http://localhost:8761/eureka/
+mongodb:
+  uri: mongodb://192.168.118.131:27017/test

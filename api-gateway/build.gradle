@@ -1,0 +1,25 @@
+version = '1.0'
+jar {
+    baseName = 'api-gateway' + "-$profile"
+    version = '0.1.0'
+}
+
+dependencies {
+    compile(
+            "org.springframework.boot:spring-boot-starter-web",
+            "org.springframework.cloud:spring-cloud-starter-eureka",
+            "org.springframework.cloud:spring-cloud-starter-config",
+            "org.springframework.boot:spring-boot-starter-logging",
+            "org.springframework.boot:spring-boot-starter-security",
+            "org.springframework.boot:spring-boot-starter-hateoas",
+            "org.springframework.security.oauth:spring-security-oauth2",
+            "org.springframework.boot:spring-boot-configuration-processor",
+            "org.projectlombok:lombok",
+            "net.sf.json-lib:json-lib:2.4:jdk15",
+            "io.springfox:springfox-swagger2:2.7.0",
+            "io.springfox:springfox-swagger-ui:2.7.0"
+    )
+    testCompile(
+            "org.springframework.boot:spring-boot-starter-test"
+    )
+}

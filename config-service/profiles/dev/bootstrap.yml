@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: config-service
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/JerryHanmin/vic-tech-config.git
+          username: JerryHanmin
+          password: han3262302
+          searchPaths: applications
+
+log:
+  custom_level: debug
+  root_level: info
+  maxHistoryDays: 3
