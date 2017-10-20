@@ -1,6 +1,8 @@
 # vic-tech
   一个测试项目，用来学习研究基于spring-cloud的java分布式架构。<br />
-  使用Gradle构建，spring-cloud版本 -> Dalston.SR4  springboot版本 -> 1.5.6.RELEASE
+  使用gradle构建，有配置gradle wapper，默认版本gradle-4.2-rc-2<br />
+  spring-cloud版本 -> Dalston.SR4  <br />
+  springboot版本 -> 1.5.6.RELEASE  <br />
   
   邮件： jerryhanm@foxmail.com 有问题欢迎交流
 
