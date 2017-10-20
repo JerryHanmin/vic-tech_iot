@@ -26,8 +26,8 @@
   * nginx比zuul更加高效和方便应用
   * api网关有个职责是对数据结构的优化 <br />
     例如:<br />
-    底层的user-service提供了User的信息, web前端可能需要所有的字段展示给用户; 但是mobile前端可能只需要少量的字段来显示(节约流量);<br />
-    这时候我目前的解决办法是提供webapp-gateway与mobile-gateway来规范返回值, 并且为不同的客户端提供相应的专属API.
+    user-service提供了User的信息, web前端需要展示所有的字段给用户, 但是mobile前端只需要展示少量的字段(节约流量);<br />
+    我目前的解决办法是提供webapp-gateway与mobile-gateway来规范返回值, 并且为不同的客户端提供相应的专属API.
 
 ### user-service
   用户服务
