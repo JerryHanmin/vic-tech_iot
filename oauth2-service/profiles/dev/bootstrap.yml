@@ -4,7 +4,7 @@ server:
 
 spring:
   profiles:
-    active: euraka_client,logback,oauth2,mysql,redis
+    active: eureka_client,oauth2,mysql,redis
   application:
       name: oauth2-service
   cloud:
@@ -12,6 +12,11 @@ spring:
       name: common-config
       uri: http://localhost:19300/config
 
+logback:
+  custom_level: debug
+  root_level: info
+  path: logs
+  custom_path: com.vic
 eureka:
   uri: http://localhost:8761/eureka/
 redis:

@@ -1,11 +1,10 @@
 <configuration>
     <!-- 日志路径 -->
-    <springProperty scope="context" name="LOG_ROOT_LEVEL" source="log.root_level"/>
-    <springProperty scope="context" name="LOG_CUSTOM_LEVEL" source="log.custom_level"/>
-    <springProperty scope="context" name="MAX_HISTROY" source="log.maxHistoryDays"/>
+    <springProperty scope="context" name="LOG_ROOT_LEVEL" source="logback.root_level"/>
+    <springProperty scope="context" name="LOG_CUSTOM_LEVEL" source="logback.custom_level"/>
     <springProperty scope="context" name="SERVICE-NAME" source="spring.application.name"/>
-    <springProperty scope="context" name="LOG_HOME" source="log.path"/>
-    <springProperty scope="context" name="LOG_CUSTOM_PATH" source="log.custom_path"/>
+    <springProperty scope="context" name="LOG_HOME" source="logback.path"/>
+    <springProperty scope="context" name="LOG_CUSTOM_PATH" source="logback.custom_path"/>
 
     <!-- 控制台日志 -->
     <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
@@ -21,7 +20,7 @@
             <!-- rollover daily -->
             <fileNamePattern>${LOG_HOME}/${SERVICE-NAME}.%d{yyyy-MM-dd}.%i.log
             </fileNamePattern>
-            <maxHistory>${MAX_HISTROY}</maxHistory>
+            <maxHistory>3</maxHistory>
             <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
                 <!-- or whenever the file size reaches 10MB -->
                 <maxFileSize>10MB</maxFileSize>

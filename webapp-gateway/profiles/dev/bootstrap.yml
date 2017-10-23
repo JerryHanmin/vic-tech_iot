@@ -2,7 +2,7 @@ server:
   port: 19302
 spring:
   profiles:
-    active: euraka_client,logback,web_gateway
+    active: eureka_client,web_gateway
   application:
       name: webapp-gateway
   cloud:
@@ -11,6 +11,11 @@ spring:
       uri: http://localhost:19300/config
 
 
+logback:
+  custom_level: debug
+  root_level: info
+  path: logs
+  custom_path: com.vic
 eureka:
   uri: http://localhost:8761/eureka/
 
