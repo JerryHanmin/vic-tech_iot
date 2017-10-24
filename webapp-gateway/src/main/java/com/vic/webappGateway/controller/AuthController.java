@@ -2,7 +2,7 @@ package com.vic.webappGateway.controller;
 
 
 import com.vic.webappGateway.model.AccessToken;
-import com.vic.webappGateway.model.Login;
+import com.vic.webappGateway.model.request.LoginRequest;
 import com.vic.webappGateway.utils.OauthUtils;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -21,7 +21,7 @@ public class AuthController extends BaseController {
 
     @ApiOperation(value = "登陆, 获取access_token")
     @RequestMapping(value = "/login", method = RequestMethod.POST)
-    public AccessToken login(@RequestBody Login login) {
+    public AccessToken login(@RequestBody LoginRequest login) {
         String api = String.format(serviceProperties.getOauth2().getPrefix() + serviceProperties.getOauth2().getAccessTokenApi(), login.getAccount(), login.getPassword());
         ResponseEntity<AccessToken> response = restTemplate.postForEntity(api, new HttpEntity(OauthUtils.buildAouthHeader(serviceProperties.getOauth2().getClientId(), serviceProperties.getOauth2().getClientSecret())), AccessToken.class);
 

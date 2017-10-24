@@ -1,10 +1,7 @@
 <configuration>
     <!-- 日志路径 -->
-    <springProperty scope="context" name="LOG_ROOT_LEVEL" source="logback.root_level"/>
-    <springProperty scope="context" name="LOG_CUSTOM_LEVEL" source="logback.custom_level"/>
+    <property name="LOG_HOME" value="logs"/>
     <springProperty scope="context" name="SERVICE-NAME" source="spring.application.name"/>
-    <springProperty scope="context" name="LOG_HOME" source="logback.path"/>
-    <springProperty scope="context" name="LOG_CUSTOM_PATH" source="logback.custom_path"/>
 
     <!-- 控制台日志 -->
     <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
@@ -32,15 +29,22 @@
         </encoder>
     </appender>
 
+    <!-- LOGSTASH -->
+    <appender name="LOGSTASH" class="net.logstash.logback.appender.LogstashTcpSocketAppender">
+        <destination>192.168.118.131:4560</destination>
+        <encoder charset="UTF-8" class="net.logstash.logback.encoder.LogstashEncoder"/>
+    </appender>
+
     <!--TRACE DEBUG INFO WARN ERROR ALL OFF-->
-    <root level="${LOG_ROOT_LEVEL}">
+    <root level="INFO">
         <appender-ref ref="FILE"/>
         <appender-ref ref="STDOUT"/>
     </root>
 
-    <logger name="${LOG_CUSTOM_PATH}" level="${LOG_CUSTOM_LEVEL}" additivity="false">
+    <logger name="com.vic" level="DEBUG">
         <appender-ref ref="FILE"/>
         <appender-ref ref="STDOUT"/>
+        <appender-ref ref="LOGSTASH"/>
     </logger>
 
 </configuration>

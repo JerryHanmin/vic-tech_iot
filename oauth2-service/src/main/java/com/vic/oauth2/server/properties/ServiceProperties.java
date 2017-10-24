@@ -8,5 +8,6 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 @Data
 public class ServiceProperties {
 
-    private Local local;
+    private LocalProperties local = new LocalProperties();
+    private UserProperties user = new UserProperties();
 }

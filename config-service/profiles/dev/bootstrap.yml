@@ -7,11 +7,5 @@ spring:
         git:
           uri: https://github.com/JerryHanmin/vic-tech-config.git
           username: JerryHanmin
-          password: ${password}
+          password: han3262302
           searchPaths: applications
-
-logback:
-  custom_level: debug
-  root_level: info
-  path: logs
-  custom_path: com.vic

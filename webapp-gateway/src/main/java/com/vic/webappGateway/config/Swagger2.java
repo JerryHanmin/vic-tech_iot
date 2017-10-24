@@ -32,7 +32,7 @@ public class Swagger2 {
                 .globalOperationParameters(Collections.singletonList(builder.build()))
                 .select()
                 // 扫描该包下的所有需要在Swagger中展示的API，@ApiIgnore注解标注的除外
-                .apis(RequestHandlerSelectors.basePackage("com.vic.apiGateway.controller"))
+                .apis(RequestHandlerSelectors.basePackage("com.vic.webappGateway.controller"))
                 .paths(PathSelectors.any())
                 .build();
     }

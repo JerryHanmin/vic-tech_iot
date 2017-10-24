@@ -8,5 +8,5 @@ import lombok.ToString;
 
 @Data
 @ToString
-public class Local {
+public class LocalProperties {
 }

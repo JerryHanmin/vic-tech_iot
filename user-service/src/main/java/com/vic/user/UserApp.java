@@ -1,6 +1,5 @@
 package com.vic.user;
 
-import com.vic.user.entity.User;
 import com.vic.user.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
@@ -25,20 +24,4 @@ public class UserApp {
         SpringApplication.run(UserApp.class, args);
     }
 
-
-    @Autowired
-    UserRepository userRepository;
-
-    @Autowired
-    public void init() {
-        userRepository.deleteAll();
-
-        User user = new User();
-
-        user.setAccount("admin");
-        user.setAge(18);
-        user.setName("admin");
-
-        userRepository.save(user);
-    }
 }

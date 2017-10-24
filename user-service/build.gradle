@@ -9,7 +9,10 @@ dependencies {
             "org.springframework.cloud:spring-cloud-starter-config",
             "org.springframework.cloud:spring-cloud-starter-eureka",
             "org.springframework.boot:spring-boot-starter-data-mongodb",
-            "org.projectlombok:lombok"
+            "org.projectlombok:lombok",
+            "io.springfox:springfox-swagger2:2.7.0",
+            "io.springfox:springfox-swagger-ui:2.7.0",
+            "net.logstash.logback:logstash-logback-encoder:4.9"
     )
 
     testCompile(

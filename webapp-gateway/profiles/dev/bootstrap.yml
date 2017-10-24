@@ -10,12 +10,6 @@ spring:
       name: common-config
       uri: http://localhost:19300/config
 
-
-logback:
-  custom_level: debug
-  root_level: info
-  path: logs
-  custom_path: com.vic
 eureka:
   uri: http://localhost:8761/eureka/
 

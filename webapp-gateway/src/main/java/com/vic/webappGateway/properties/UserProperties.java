@@ -5,7 +5,8 @@ import lombok.ToString;
 
 @Data
 @ToString
-public class User {
+public class UserProperties {
     private String prefix = "http://user-service/users";
     private String users = "";
+    private String register = "/register";
 }

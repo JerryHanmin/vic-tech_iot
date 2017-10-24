@@ -3,7 +3,7 @@
  */
 package com.vic.oauth2.server.config;
 
-import com.vic.oauth2.server.properties.Local;
+import com.vic.oauth2.server.properties.ServiceProperties;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
@@ -37,7 +37,7 @@ public class TokenStoreConfig {
     public static class JwtConfig {
 
         @Autowired
-        private Local oauth2ServerProperties;
+        private ServiceProperties serviceProperties;
 
         @Bean()
         public TokenStore jwtTokenStore() {
@@ -47,7 +47,7 @@ public class TokenStoreConfig {
         @Bean
         public JwtAccessTokenConverter jwtAccessTokenConverter() {
             JwtAccessTokenConverter converter = new JwtAccessTokenConverter();
-            converter.setSigningKey(oauth2ServerProperties.getSigningKey());
+            converter.setSigningKey(serviceProperties.getLocal().getSigningKey());
             return converter;
         }
 

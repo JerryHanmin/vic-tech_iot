@@ -1,5 +1,6 @@
 package com.vic.webappGateway.security;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -14,6 +15,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.Charset;
 
+@Slf4j
 public class MyResponseErrorHandler implements org.springframework.web.client.ResponseErrorHandler {
     private HttpStatus httpStatus;
     private String responseStr;
@@ -59,6 +61,8 @@ public class MyResponseErrorHandler implements org.springframework.web.client.Re
      */
     @Override
     public void handleError(ClientHttpResponse response) throws IOException {
+        log.debug(new String(getResponseBody(response)));
+
         HttpStatus statusCode = getHttpStatusCode(response);
         switch (statusCode.series()) {
             case CLIENT_ERROR:

@@ -8,9 +8,9 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 @Data
 public class ServiceProperties {
 
-    private Oauth2 oauth2 = new Oauth2();
+    private Oauth2Properties oauth2 = new Oauth2Properties();
 
-    private Local local = new Local();
+    private LocalProperties local = new LocalProperties();
 
-    private User user = new User();
+    private UserProperties user = new UserProperties();
 }
