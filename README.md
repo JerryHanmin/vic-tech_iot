@@ -6,7 +6,25 @@
   
   邮件： jerryhanm@foxmail.com 有问题欢迎交流
 
-## 服务组成及功能
+## 已实现或正在进行中功能 ↓
+
+    * 服务发现
+    * 外部配置（统一配置），可在启动时动态设置配置项，达到运维与研发分离的目的
+    * Oauth2安全验证（sso）
+    * logstash日志管理
+    * 国际化
+    * 统一错误管理（对外返回有意义的统一格式的错误信息）
+
+
+## 计划中功能 ↓
+    
+    * docker容器
+    * DDD事件驱动模型
+    * Spark数据分析
+    * 还没想到，想到再加 :-)
+
+
+## 服务组成 ↓
 
 ### discovery-service
 
@@ -22,7 +40,7 @@
   鉴权服务，spring-security 与 oauth2 实现。
   
   * 实现JWT和Redis方式存储Token， 通过配置文件选择
-  * client与account存在Mysql
+  * client存在Mongodb，user由user-service维护
   * 只实现了用户-权限2级策略(有时间再来搞用户-角色-权限的三级权限策略)
 
 ### webapp-gateway
