@@ -1,7 +1,0 @@
-rootProject.name = 'vic-tech'
-include 'discovery-service'
-include 'config-service'
-include 'oauth2-service'
-include 'user-service'
-include 'webapp-manager-gateway'
-
