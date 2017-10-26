@@ -48,8 +48,8 @@
     * client存在Mongodb，user由user-service维护
     * 只实现了用户-权限2级策略(有时间再来搞用户-角色-权限的三级权限策略)
 
-### webapp-gateway
-  给web前端提供的api网关； 这里没有使用zuul而是用代码转发， 理由如下：
+### webapp-manager-gateway
+  给web管理网站提供的api网关； 这里没有使用zuul而是用代码转发， 理由如下：
     
     * nginx比zuul更加高效和方便应用
     * api网关有个职责是对数据结构的优化
