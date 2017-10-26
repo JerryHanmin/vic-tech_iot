@@ -9,7 +9,8 @@ spring:
   cloud:
     config:
       name: common-config
-      uri: http://localhost:19300/config
+      uri: http://192.168.118.131:19300/config
 
-eureka:
-  uri: http://localhost:8761/eureka/
+service:
+  eureka:
+    uri: http://192.168.118.131:8761/eureka/

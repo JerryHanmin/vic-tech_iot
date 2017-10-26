@@ -3,5 +3,5 @@ include 'discovery-service'
 include 'config-service'
 include 'oauth2-service'
 include 'user-service'
-include 'webapp-gateway'
+include 'webapp-manager-gateway'
 
