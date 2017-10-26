@@ -1,0 +1,7 @@
+rootProject.name = 'iot_micoservices'
+include 'discovery-service'
+include 'config-service'
+include 'oauth2-service'
+include 'user-service'
+include 'webapp-manager-gateway'
+

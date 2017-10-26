@@ -1,0 +1,20 @@
+server:
+  port: 19301
+  context-path: /security
+
+spring:
+  profiles:
+    active: eureka_client,oauth2,mongo,redis
+  application:
+      name: oauth2-service
+  cloud:
+    config:
+      name: common-config
+      uri: http://192.168.118.131:19300/config
+service:
+  eureka:
+    uri: http://192.168.118.131:8761/eureka/
+  redis:
+    host: 192.168.118.131
+  mongodb:
+    uri: mongodb://192.168.118.131:27017/oauth

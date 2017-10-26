@@ -1,0 +1,17 @@
+version = '1.0'
+jar {
+    baseName = 'discovery-service'+"-$profile"
+    version = '0.1.0'
+}
+
+dependencies {
+    compile(
+            "org.springframework.cloud:spring-cloud-starter-config",
+            "org.springframework.cloud:spring-cloud-starter-eureka",
+            "org.springframework.cloud:spring-cloud-starter-eureka-server",
+            "net.logstash.logback:logstash-logback-encoder:4.9"
+    )
+    testCompile(
+            "org.springframework.boot:spring-boot-starter-test"
+    )
+}

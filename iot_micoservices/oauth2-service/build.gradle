@@ -1,0 +1,31 @@
+version = '1.0'
+jar {
+    baseName = 'oauth2-service' + "-$profile"
+    version = '0.1.0'
+}
+
+dependencies {
+    compile(
+            "org.springframework.boot:spring-boot-starter-web",
+            "org.springframework.cloud:spring-cloud-starter-config",
+            "org.springframework.cloud:spring-cloud-starter-eureka",
+            "org.springframework.boot:spring-boot-starter-logging",
+            "org.springframework.boot:spring-boot-starter-data-redis",
+            "org.springframework.boot:spring-boot-starter-data-mongodb",
+            "org.springframework.boot:spring-boot-starter-security",
+            "org.springframework.security.oauth:spring-security-oauth2",
+            "org.springframework.boot:spring-boot-configuration-processor",
+            "org.springframework.cloud:spring-cloud-starter-oauth2",
+            "org.springframework.security:spring-security-jwt",
+            "com.fasterxml.jackson.core:jackson-databind",
+            "org.projectlombok:lombok",
+            "io.springfox:springfox-swagger2:2.7.0",
+            "io.springfox:springfox-swagger-ui:2.7.0",
+            "net.logstash.logback:logstash-logback-encoder:4.9"
+    )
+
+    testCompile(
+            "org.bitbucket.b_c:jose4j:0.5.1",
+            "org.springframework.boot:spring-boot-starter-test"
+    )
+}

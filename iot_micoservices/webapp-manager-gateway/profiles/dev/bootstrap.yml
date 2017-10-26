@@ -1,0 +1,30 @@
+server:
+  port: 19302
+spring:
+  validation_messages:
+    basename: i18n/validation_messages
+  messages:
+    basename: i18n/messages
+  profiles:
+    active: eureka_client,web_gateway
+  application:
+      name: webapp-manager-gateway
+  cloud:
+    config:
+      name: common-config
+      uri: http://192.168.118.131:19300/config
+
+service:
+  eureka:
+    uri: http://192.168.118.131:8761/eureka/
+
+
+#  jwt  token验证方式的配置, 需添加 "org.springframework.security:spring-security-jwt" 包
+#security:
+#  oauth2:
+#    client:
+#      client-id: webapp
+#      client-secret: webapp
+#    resource:
+#      jwt:
+#        key-uri: http://localhost:19301/security/oauth/token_key
