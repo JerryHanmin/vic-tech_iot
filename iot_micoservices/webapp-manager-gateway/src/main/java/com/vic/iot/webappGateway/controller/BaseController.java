@@ -11,6 +11,7 @@ import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.AccessDeniedException;
+import org.springframework.security.oauth2.common.exceptions.InvalidTokenException;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.validation.ObjectError;
@@ -76,6 +77,11 @@ public class BaseController {
         errorReponse.setMessages(messages);
 
         return errorReponse;
+    }
+
+    @ExceptionHandler(InvalidTokenException.class)
+    public ResponseEntity<?> handleInvalidTokenException(Exception e) throws Exception {
+        return new ResponseEntity<>(errorReponse("auth.invalid_token", null, LocaleContextHolder.getLocale()), HttpStatus.FORBIDDEN);
     }
 
     @ExceptionHandler(AccessDeniedException.class)

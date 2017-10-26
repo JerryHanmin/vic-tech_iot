@@ -4,6 +4,7 @@ import com.vic.iot.webappGateway.properties.ServiceProperties;
 import com.vic.iot.webappGateway.security.MyRemoteTokenServices;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -11,6 +12,9 @@ import org.springframework.security.oauth2.config.annotation.web.configuration.E
 import org.springframework.security.oauth2.config.annotation.web.configuration.ResourceServerConfigurerAdapter;
 import org.springframework.security.oauth2.config.annotation.web.configurers.ResourceServerSecurityConfigurer;
 import org.springframework.security.oauth2.provider.error.OAuth2AccessDeniedHandler;
+import org.springframework.security.oauth2.provider.token.DefaultAccessTokenConverter;
+import org.springframework.security.oauth2.provider.token.RemoteTokenServices;
+import org.springframework.web.client.RestTemplate;
 
 @Configuration
 @EnableResourceServer
@@ -24,6 +28,9 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
 
     @Autowired
     private MyRemoteTokenServices myRemoteTokenServices;
+
+    @Autowired
+    protected RestTemplate restTemplate;
 
     @Override
     public void configure(HttpSecurity http) throws Exception {

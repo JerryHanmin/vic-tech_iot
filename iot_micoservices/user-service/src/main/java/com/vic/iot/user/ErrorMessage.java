@@ -1,32 +1,23 @@
 package com.vic.iot.user;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import lombok.Data;
+import lombok.ToString;
 
+@Data
+@ToString
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class ErrorMessage {
-	private String code;
-	private String message;
 
-	public String getCode() {
-		return code;
-	}
+    public ErrorMessage() {
+    }
 
-	public void setCode(String code) {
-		this.code = code;
-	}
+    public ErrorMessage(String code, String description) {
+        this.code = code;
+        this.description = description;
+    }
 
-	public String getMessage() {
-		return message;
-	}
 
-	public void setMessage(String message) {
-		this.message = message;
-	}
-
-	public ErrorMessage(String code, String message) {
-		super();
-		this.code = code;
-		this.message = message;
-	}
-
+    private String code;
+    private String description;
 }

@@ -42,7 +42,6 @@ public class MyRemoteTokenServices implements ResourceServerTokenServices {
     @Autowired
     private RestTemplate restTemplate;
 
-
     @Autowired
     private ServiceProperties serviceProperties;
 
@@ -92,9 +91,7 @@ public class MyRemoteTokenServices implements ResourceServerTokenServices {
             headers.setContentType(MediaType.APPLICATION_FORM_URLENCODED);
         }
         //处理异常情况
-        MyResponseErrorHandler errorHandler = new MyResponseErrorHandler();
-
-        restTemplate.setErrorHandler(errorHandler);
+        restTemplate.setErrorHandler(new MyResponseErrorHandler());
         try {
 
             @SuppressWarnings("rawtypes")
@@ -105,11 +102,13 @@ public class MyRemoteTokenServices implements ResourceServerTokenServices {
             return result;
 
         } catch (Exception e) {
-
+            MyResponseErrorHandler errorHandler = (MyResponseErrorHandler) restTemplate.getErrorHandler();
             JSONObject reponse = JSONObject.fromObject(errorHandler.getResponseBody());
+
             //通常这里都是check_token ,如果异常那就是InvalidTokenException
             if (!StringUtils.isEmpty(errorHandler.getResponseBody()) && reponse.containsKey("error_description"))
                 throw new InvalidTokenException(reponse.getString("error_description"));
+
             else throw new InvalidTokenException("Token validation does not pass !");
         }
 

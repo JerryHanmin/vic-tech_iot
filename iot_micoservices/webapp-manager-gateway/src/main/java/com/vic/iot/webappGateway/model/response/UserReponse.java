@@ -14,7 +14,6 @@ public class UserReponse {
     private String userId;
     private String loginname;
     private String username;
-    private String password;
     private Set<GrantedAuthority> authorities;
     private boolean accountNonExpirede = true;
     private boolean accountNonLocked = true;

@@ -6,6 +6,7 @@ import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 import org.springframework.context.i18n.LocaleContextHolder;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpEntity;
@@ -21,7 +22,7 @@ public class UserController extends BaseController {
     @RequestMapping(value = "/register", method = RequestMethod.POST)
     public HttpEntity<?> register(@RequestBody User user) {
         if (null != userRepository.findByAccountOrMobile(user.getAccount(), user.getMobile())) {
-            return new ResponseEntity<>(errorMessage("oauth2.account.register.existed", LocaleContextHolder.getLocale()), HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<>(errorReponse("oauth2.account.register.existed", null, LocaleContextHolder.getLocale()), HttpStatus.BAD_REQUEST);
         }
 
         User createUser = new User();
@@ -36,9 +37,9 @@ public class UserController extends BaseController {
         return new ResponseEntity<>(userRepository.findByAccountOrMobile(param, param), HttpStatus.OK);
     }
 
-    @ApiOperation(value = "按条件查询用户(登录名 或 用户ID 或 手机号)")
+    @ApiOperation(value = "查询所有用户")
     @RequestMapping(method = RequestMethod.GET)
     public HttpEntity<?> findAllUser(@PageableDefault(page = 0, size = 20) Pageable pageable) {
-        return new ResponseEntity<>(userRepository.findAll(pageable), HttpStatus.OK);
+        return new ResponseEntity<>(pagedResources(userRepository.findAll(pageable)), HttpStatus.OK);
     }
 }
