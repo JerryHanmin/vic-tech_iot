@@ -1,10 +1,15 @@
-# vic-tech
+# vic-tech_iot
+
   一个测试项目，用来学习研究基于spring-cloud的java分布式架构。<br />
+  功能以物联网相关业务为基础，大致包括
+  * 设备网关 -> 与硬件设备交互，至少实现TCP（MQTT协议），消息队列（kafka），http方式
+  * 设备管理平台 -> 管理网站（前后端完全分离，后台为微服务提供RESTFul的api，前台为AngularJS + Bootstarp响应式网站）
+  
   使用gradle构建，有配置gradle wapper，默认版本gradle-4.2-rc-2<br />
   spring-cloud版本 -> Dalston.SR4  <br />
   springboot版本 -> 1.5.6.RELEASE  <br />
   
-  邮件： jerryhanm@foxmail.com 有问题欢迎交流
+  邮箱： jerryhanm@foxmail.com
 
 ## 已实现或正在进行中功能 ↓
 
@@ -47,9 +52,9 @@
   给web前端提供的api网关； 这里没有使用zuul而是用代码转发， 理由如下：
     
     * nginx比zuul更加高效和方便应用
-    * api网关有个职责是对数据结构的优化 <br />
-    例如：<br />
-    user-service提供了User的信息，web前端需要展示所有的字段给用户， 但是mobile前端只需要展示少量的字段(节约流量)；<br />
+    * api网关有个职责是对数据结构的优化
+    例如：
+    user-service提供了User的信息，web前端需要展示所有的字段给用户， 但是mobile前端只需要展示少量的字段(节约流量)；
     我目前的解决办法是提供webapp-gateway与mobile-gateway来规范返回值，并且为不同的客户端提供相应的专属API。
 
 ### user-service
