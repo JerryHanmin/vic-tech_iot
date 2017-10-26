@@ -1,4 +1,4 @@
-package com.vic.iot.user;
+package com.vic.iot.device;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;

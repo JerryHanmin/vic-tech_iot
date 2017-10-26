@@ -1,4 +1,4 @@
-package com.vic.iot.user.entity;
+package com.vic.iot.device.entity;
 
 import lombok.Data;
 import org.springframework.data.mongodb.core.mapping.Field;

@@ -1,0 +1,22 @@
+version = '1.0'
+jar {
+    baseName = 'device-service' + "-$profile"
+    version = '0.1.0'
+}
+
+dependencies {
+    compile(
+            "org.springframework.cloud:spring-cloud-starter-config",
+            "org.springframework.cloud:spring-cloud-starter-eureka",
+            "org.springframework.boot:spring-boot-starter-data-mongodb",
+            "org.springframework.boot:spring-boot-starter-hateoas",
+            "org.projectlombok:lombok",
+            "io.springfox:springfox-swagger2:2.7.0",
+            "io.springfox:springfox-swagger-ui:2.7.0",
+            "net.logstash.logback:logstash-logback-encoder:4.9"
+    )
+
+    testCompile(
+            "org.springframework.boot:spring-boot-starter-test"
+    )
+}

@@ -1,8 +1,7 @@
-package com.vic.iot.user.entity;
+package com.vic.iot.gateway.model;
 
 import lombok.Data;
 import lombok.ToString;
-import org.springframework.data.annotation.Id;
 
 @Data
 @ToString

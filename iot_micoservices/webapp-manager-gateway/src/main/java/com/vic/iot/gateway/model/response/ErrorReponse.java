@@ -1,6 +1,7 @@
-package com.vic.iot.user;
+package com.vic.iot.gateway.model.response;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.vic.iot.gateway.model.ErrorMessage;
 import lombok.Data;
 
 import java.util.List;

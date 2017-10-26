@@ -1,0 +1,21 @@
+server:
+  port: 19304
+  context-path: /devices
+
+spring:
+  messages:
+    basename: i18n/messages
+  profiles:
+    active: eureka_client,mongo
+  application:
+      name: device-service
+  cloud:
+    config:
+      name: common-config
+      uri: http://192.168.118.131:19300/config
+
+service:
+  eureka:
+    uri: http://192.168.118.131:8761/eureka/
+  mongodb:
+    uri: mongodb://192.168.118.131:27017/device

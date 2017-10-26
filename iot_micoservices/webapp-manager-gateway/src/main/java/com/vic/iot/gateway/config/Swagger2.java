@@ -1,14 +1,18 @@
-package com.vic.iot.user.config;
+package com.vic.iot.gateway.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import springfox.documentation.builders.ApiInfoBuilder;
+import springfox.documentation.builders.ParameterBuilder;
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
+import springfox.documentation.schema.ModelRef;
 import springfox.documentation.service.ApiInfo;
 import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
+
+import java.util.Collections;
 
 @Configuration
 @EnableSwagger2
@@ -20,15 +24,15 @@ public class Swagger2 {
     @Bean
     public Docket createRestApi() {
         //构建全局参数 Authorization, Oauth2安全令牌, 除登陆外, 其他的api均需使用
-//        ParameterBuilder builder = new ParameterBuilder();
-//        builder.name("Authorization").error_description("Oauth2认证令牌").defaultValue("Bearer").modelRef(new ModelRef("string")).parameterType("header").required(false).build();
+        ParameterBuilder builder = new ParameterBuilder();
+        builder.name("Authorization").description("Oauth2认证令牌").defaultValue("Bearer").modelRef(new ModelRef("string")).parameterType("header").required(false).build();
         return new Docket(DocumentationType.SWAGGER_2)
                 .apiInfo(apiInfo())
                 //增加参数
-//                .globalOperationParameters(Collections.singletonList(builder.build()))
+                .globalOperationParameters(Collections.singletonList(builder.build()))
                 .select()
                 // 扫描该包下的所有需要在Swagger中展示的API，@ApiIgnore注解标注的除外
-                .apis(RequestHandlerSelectors.basePackage("org.springframework.security.oauth2.provider.endpoint"))
+                .apis(RequestHandlerSelectors.basePackage("com.vic.webappGateway.controller"))
                 .paths(PathSelectors.any())
                 .build();
     }
@@ -36,7 +40,7 @@ public class Swagger2 {
     private ApiInfo apiInfo() {// 创建API的基本信息，这些信息会在Swagger UI中进行显示
         return new ApiInfoBuilder()
                 .title("Spring Boot中使用Swagger2构建RESTful APIs")// API 标题
-                .description("用户管理")// API描述
+                .description("Api 网关的示例")// API描述
                 .contact("hanmin")// 联系人
                 .version("1.0")// 版本号
                 .build();
