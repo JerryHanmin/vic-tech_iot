@@ -28,8 +28,19 @@
     * Spark数据分析
     * 还没想到，想到再加 :-)
 
+## iot-components 组件
 
-## 服务组成
+### iot-common
+
+  公共组件。
+  
+    * 包括错误消息实体（确保每个服务的错误消息格式统一化，前端才好根据错误进行业务逻辑，提高容错性）
+    * Entity和controller的底层公共参数
+    * exception
+    * swagger和i18n的相关配置
+    * http返回参数的格式化工具（确保每个服务的返回格式统一化，api网关才好做统一的返回处理）
+  
+## iot_micoservices 微服务
 
 ### discovery-service
 
