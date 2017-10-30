@@ -3,7 +3,6 @@ package com.vic.iot.oauth2.server.entity;
 import lombok.Data;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
-import org.springframework.data.mongodb.core.mapping.Field;
 import org.springframework.security.oauth2.provider.client.BaseClientDetails;
 
 
@@ -11,6 +10,5 @@ import org.springframework.security.oauth2.provider.client.BaseClientDetails;
 @Document(collection = "oauth_client_details")
 public class OauthClientDetails extends BaseClientDetails {
     @Id
-    @Field("client_id")
     private String clientId;
 }

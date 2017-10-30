@@ -1,6 +1,6 @@
 package com.vic.iot.oauth2.server.service;
 
-import com.vic.iot.oauth2.server.properties.ServiceProperties;
+import com.vic.iot.oauth2.server.properties.OauthServiceProperties;
 import com.vic.iot.oauth2.server.repository.OauthClientsDetailsRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +12,7 @@ import org.springframework.web.client.RestTemplate;
 public class BaseService {
 
     @Autowired
-    protected ServiceProperties serviceProperties;
+    protected OauthServiceProperties serviceProperties;
     @Autowired
     protected RestTemplate restTemplate;
     @Autowired

@@ -41,6 +41,11 @@ public class DeviceTest {
         components.put("ICCID", "xxoo");
         device.setComponents(components);
 
+
+        Map<String, String> deviceInfo = Maps.newHashMap();
+        deviceInfo.put("model", "xx");
+        device.setDeviceInfo(deviceInfo);
+
         Map<String, String> info = Maps.newHashMap();
         info.put("test", "test");
         device.setAdditionalInfo(info);

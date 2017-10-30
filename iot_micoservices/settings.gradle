@@ -1,4 +1,8 @@
 rootProject.name = 'iot_micoservices'
+
+includeFlat('iot-components')
+include ':iot-components:iot-common'
+
 include 'discovery-service'
 include 'config-service'
 include 'oauth2-service'

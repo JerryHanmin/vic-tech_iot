@@ -1,12 +1,8 @@
 server:
   port: 19302
 spring:
-  validation_messages:
-    basename: i18n/validation_messages
-  messages:
-    basename: i18n/messages
   profiles:
-    active: eureka_client,web_gateway
+    active: eureka_client,web_gateway,common
   application:
       name: webapp-manager-gateway
   cloud:
@@ -15,6 +11,12 @@ spring:
       uri: http://192.168.118.131:19300/config
 
 service:
+  swagger:
+    base_package: com.vic.iot.gateway.controller
+    title: Spring Boot中使用Swagger2构建RESTful APIs
+    description: 管理网站的Api 网关
+    contact: hanmin
+    version: 1.0
   eureka:
     uri: http://192.168.118.131:8761/eureka/
 

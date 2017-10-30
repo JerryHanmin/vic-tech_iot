@@ -1,12 +1,9 @@
 server:
   port: 19304
-  context-path: /devices
 
 spring:
-  messages:
-    basename: i18n/messages
   profiles:
-    active: eureka_client,mongo
+    active: eureka_client,mongo,common
   application:
       name: device-service
   cloud:
@@ -15,6 +12,11 @@ spring:
       uri: http://192.168.118.131:19300/config
 
 service:
+    base_package: com.vic.iot.device.controller
+    title: Spring Boot中使用Swagger2构建RESTful APIs
+    description: 设备管理
+    contact: hanmin
+    version: 1.0
   eureka:
     uri: http://192.168.118.131:8761/eureka/
   mongodb:

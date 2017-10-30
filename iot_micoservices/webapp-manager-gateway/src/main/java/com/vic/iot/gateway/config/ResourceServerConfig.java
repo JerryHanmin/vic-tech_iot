@@ -1,6 +1,6 @@
 package com.vic.iot.gateway.config;
 
-import com.vic.iot.gateway.properties.ServiceProperties;
+import com.vic.iot.gateway.properties.GatewayServiceProperties;
 import com.vic.iot.gateway.security.MyRemoteTokenServices;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +21,7 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
 
 
     @Autowired
-    private ServiceProperties serviceProperties;
+    private GatewayServiceProperties serviceProperties;
 
     @Autowired
     private MyRemoteTokenServices myRemoteTokenServices;

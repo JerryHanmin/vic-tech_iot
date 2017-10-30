@@ -1,0 +1,3 @@
+rootProject.name = 'iot-components'
+include 'iot-common'
+

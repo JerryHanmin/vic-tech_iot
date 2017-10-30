@@ -1,7 +1,7 @@
 package com.vic.iot.gateway.security;
 
 import com.vic.iot.gateway.MyResponseErrorHandler;
-import com.vic.iot.gateway.properties.ServiceProperties;
+import com.vic.iot.gateway.properties.GatewayServiceProperties;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 import net.sf.json.JSONObject;
@@ -43,7 +43,7 @@ public class MyRemoteTokenServices implements ResourceServerTokenServices {
     private RestTemplate restTemplate;
 
     @Autowired
-    private ServiceProperties serviceProperties;
+    private GatewayServiceProperties serviceProperties;
 
     @Setter
     private AccessTokenConverter tokenConverter = new DefaultAccessTokenConverter();
@@ -106,8 +106,8 @@ public class MyRemoteTokenServices implements ResourceServerTokenServices {
             JSONObject reponse = JSONObject.fromObject(errorHandler.getResponseBody());
 
             //通常这里都是check_token ,如果异常那就是InvalidTokenException
-            if (!StringUtils.isEmpty(errorHandler.getResponseBody()) && reponse.containsKey("error_description"))
-                throw new InvalidTokenException(reponse.getString("error_description"));
+            if (!StringUtils.isEmpty(errorHandler.getResponseBody()) && reponse.containsKey("errorDescription"))
+                throw new InvalidTokenException(reponse.getString("errorDescription"));
 
             else throw new InvalidTokenException("Token validation does not pass !");
         }

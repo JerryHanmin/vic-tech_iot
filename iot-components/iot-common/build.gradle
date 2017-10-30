@@ -1,0 +1,18 @@
+version = '1.0'
+jar {
+    baseName = 'iot-common' + "-$profile"
+    version = '0.1.0'
+}
+
+dependencies {
+    compile(
+            "org.springframework.cloud:spring-cloud-starter",
+            "org.springframework.boot:spring-boot-configuration-processor",
+            'org.springframework.boot:spring-boot-starter-data-rest',
+            "org.springframework.boot:spring-boot-starter-hateoas",
+            "org.projectlombok:lombok",
+            "io.springfox:springfox-swagger2:2.7.0",
+            "io.springfox:springfox-swagger-ui:2.7.0",
+            "net.sf.json-lib:json-lib:2.4:jdk15",
+    )
+}

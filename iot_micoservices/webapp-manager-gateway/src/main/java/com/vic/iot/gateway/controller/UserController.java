@@ -1,11 +1,11 @@
 package com.vic.iot.gateway.controller;
 
 
+import com.vic.iot.common.utils.PageQueryParaUtils;
 import com.vic.iot.gateway.model.GrantedAuthority;
 import com.vic.iot.gateway.model.User;
 import com.vic.iot.gateway.model.request.UserRequest;
 import com.vic.iot.gateway.model.response.UserReponse;
-import com.vic.iot.gateway.utils.PageQueryParaUtils;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
@@ -27,14 +27,14 @@ import java.util.Set;
 @Slf4j
 @Api(tags = "用户控制")
 @RequestMapping("/users")
-public class UserController extends BaseController {
+public class UserController extends GatewayBaseController {
 
 
     @ApiOperation(value = "注册用户")
     @PreAuthorize("hasRole('ROLE_USER')")
     @RequestMapping(value = "register", method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
     public ResponseEntity<?> register(@RequestBody UserRequest userRequest) {
-        String api = serviceProperties.getUser().getPrefix() + serviceProperties.getUser().getRegister();
+        String api = gatewayServiceProperties.getUser().getPrefix() + gatewayServiceProperties.getUser().getRegister();
 
         User user = new User();
         BeanUtils.copyProperties(userRequest, user);
@@ -51,18 +51,10 @@ public class UserController extends BaseController {
     @PreAuthorize("hasRole('ROLE_USER')")
     @RequestMapping(method = RequestMethod.GET)
     public ResponseEntity<?> findUsers(@PageableDefault(page = 0, size = 20) Pageable pageable) {
-        String api = serviceProperties.getUser().getPrefix() + serviceProperties.getUser().getUsers();
+        String api = gatewayServiceProperties.getUser().getPrefix() + gatewayServiceProperties.getUser().getUsers();
         String url = PageQueryParaUtils.buildUrl(api, null, pageable);
         return restTemplate.exchange(url, HttpMethod.GET, HttpEntity.EMPTY, new ParameterizedTypeReference<PagedResources<UserReponse>>() {
         });
-    }
-
-    @ApiOperation(value = "查询超级用户信息(测试api, 没有这个角色, 应该返回403错误, 权限不足)")
-    @PreAuthorize("hasRole('ROLE_USER')")
-    @RequestMapping(value = "/existed", method = RequestMethod.GET)
-    public Object isAccountExisted(@RequestParam("userid") String userid) {
-        String api = String.format(serviceProperties.getUser().getPrefix() + serviceProperties.getOauth2().getIsExistedApi(), userid);
-        return restTemplate.getForEntity(api, Object.class);
     }
 
     @ApiOperation(value = "查询超级用户信息(测试api, 没有这个角色, 应该返回403错误, 权限不足)")

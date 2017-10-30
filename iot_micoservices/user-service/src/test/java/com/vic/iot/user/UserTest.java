@@ -1,7 +1,9 @@
 package com.vic.iot.user;
 
-import com.vic.iot.user.entity.GrantedAuthority;
+import com.vic.iot.common.properties.ServiceProperties;
+import com.vic.iot.user.entity.Authority;
 import com.vic.iot.user.entity.User;
+import com.vic.iot.user.properties.UserServiceProperties;
 import com.vic.iot.user.repository.UserRepository;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -32,13 +34,6 @@ public class UserTest {
         user.setAccountNonLocked(true);
         user.setCredentialsNonExpired(true);
         user.setEnabled(true);
-
-
-        Set<GrantedAuthority> authorities = new HashSet<>();
-        authorities.add(new GrantedAuthority("ROLE_ADMIN"));
-        authorities.add(new GrantedAuthority("ROLE_USER"));
-
-        user.setAuthorities(authorities);
 
 
         userRepository.save(user);

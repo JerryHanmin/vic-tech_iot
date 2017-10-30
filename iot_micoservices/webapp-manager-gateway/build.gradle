@@ -25,4 +25,6 @@ dependencies {
             "io.springfox:springfox-swagger-ui:2.7.0",
             "net.logstash.logback:logstash-logback-encoder:4.9"
     )
+
+    compile project(':iot-components:iot-common')
 }

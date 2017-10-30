@@ -21,7 +21,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @Slf4j
 @Api(tags = "权限控制")
-public class AuthController extends BaseController {
+public class AuthController extends GatewayBaseController {
 
     @ApiOperation(value = "登陆, 获取access_token")
     @RequestMapping(value = "/login", method = RequestMethod.POST)
@@ -31,12 +31,12 @@ public class AuthController extends BaseController {
             return new ResponseEntity<>(errorReponse("auth.login.error", result.getAllErrors(), null, LocaleContextHolder.getLocale()), HttpStatus.BAD_REQUEST);
         }
 
-        String api = String.format(serviceProperties.getOauth2().getPrefix() + serviceProperties.getOauth2().getAccessTokenApi(), login.getAccount(), login.getPassword());
+        String api = String.format(gatewayServiceProperties.getOauth2().getPrefix() + gatewayServiceProperties.getOauth2().getAccessTokenApi(), login.getAccount(), login.getPassword());
 
         restTemplate.setErrorHandler(new MyResponseErrorHandler());
 
         try {
-            ResponseEntity<AccessToken> response = restTemplate.postForEntity(api, new HttpEntity(aouthHeader(serviceProperties.getOauth2().getClientId(), serviceProperties.getOauth2().getClientSecret())), AccessToken.class);
+            ResponseEntity<AccessToken> response = restTemplate.postForEntity(api, new HttpEntity(aouthHeader(gatewayServiceProperties.getOauth2().getClientId(), gatewayServiceProperties.getOauth2().getClientSecret())), AccessToken.class);
 
             log.debug(response.getBody().toString());
             return new ResponseEntity<>(response.getBody(), HttpStatus.OK);
