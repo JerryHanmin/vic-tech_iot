@@ -1,18 +1,18 @@
 package com.vic.iot.gateway;
 
+import com.vic.iot.common.BuddhaBanner;
 import com.vic.iot.gateway.properties.GatewayServiceProperties;
-import org.springframework.boot.SpringApplication;
+import org.springframework.boot.Banner;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
-import org.springframework.context.annotation.ComponentScan;
 
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages = {"com.vic.iot"})
 @EnableEurekaClient
-@ComponentScan("com.vic.iot")
 @EnableConfigurationProperties(GatewayServiceProperties.class)
 public class WebappManagerGateway {
     public static void main(String[] args) {
-        SpringApplication.run(WebappManagerGateway.class, args);
+        new SpringApplicationBuilder().banner(new BuddhaBanner()).bannerMode(Banner.Mode.LOG).sources(WebappManagerGateway.class).run(args);
     }
 }

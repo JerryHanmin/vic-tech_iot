@@ -1,4 +1,4 @@
-package com.vic.iot.common;
+package com.vic.iot.config;
 
 import org.springframework.boot.Banner;
 import org.springframework.boot.ansi.AnsiOutput;
