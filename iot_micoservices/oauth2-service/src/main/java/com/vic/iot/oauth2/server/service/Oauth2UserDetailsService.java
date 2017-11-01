@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 @Slf4j
-public class Oauth2UserDetailsService extends BaseService implements UserDetailsService {
+public class Oauth2UserDetailsService extends Oauth2BaseService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {

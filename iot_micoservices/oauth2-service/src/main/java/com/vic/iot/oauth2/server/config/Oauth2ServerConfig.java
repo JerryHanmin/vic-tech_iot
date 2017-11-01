@@ -3,7 +3,6 @@
  */
 package com.vic.iot.oauth2.server.config;
 
-import com.vic.iot.oauth2.server.service.MongoClientDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -13,6 +12,7 @@ import org.springframework.security.oauth2.config.annotation.web.configuration.A
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableAuthorizationServer;
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerEndpointsConfigurer;
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerSecurityConfigurer;
+import org.springframework.security.oauth2.provider.ClientDetailsService;
 import org.springframework.security.oauth2.provider.error.OAuth2AccessDeniedHandler;
 import org.springframework.security.oauth2.provider.token.TokenEnhancer;
 import org.springframework.security.oauth2.provider.token.TokenEnhancerChain;
@@ -29,9 +29,6 @@ public class Oauth2ServerConfig extends AuthorizationServerConfigurerAdapter {
     @Autowired
     private AuthenticationManager authenticationManager;
 
-    @Autowired
-    private UserDetailsService oauth2UserDetailsService;
-
     @Autowired(required = false)
     private JwtAccessTokenConverter jwtAccessTokenConverter;
 
@@ -43,7 +40,10 @@ public class Oauth2ServerConfig extends AuthorizationServerConfigurerAdapter {
 
 
     @Autowired
-    private MongoClientDetailsService mongoClientDetailsService;
+    private UserDetailsService oauth2UserDetailsService;
+
+    @Autowired
+    private ClientDetailsService oauth2ClientDetailsService;
 
     /**
      * 认证及token配置
@@ -89,7 +89,7 @@ public class Oauth2ServerConfig extends AuthorizationServerConfigurerAdapter {
      */
     @Override
     public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
-        clients.withClientDetails(mongoClientDetailsService);
+        clients.withClientDetails(oauth2ClientDetailsService);
     }
 
 }

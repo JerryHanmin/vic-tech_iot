@@ -19,7 +19,7 @@ import org.springframework.security.oauth2.provider.token.store.redis.RedisToken
 public class TokenStoreConfig {
 
     @Configuration
-    @ConditionalOnProperty(prefix = "service.local", name = "tokenStore", havingValue = "redis")
+    @ConditionalOnProperty(prefix = "service.oauth", name = "tokenStore", havingValue = "redis", matchIfMissing = true)
     public static class RedisStoreConfig {
 
         @Autowired
@@ -33,7 +33,7 @@ public class TokenStoreConfig {
     }
 
     @Configuration
-    @ConditionalOnProperty(prefix = "service.local", name = "tokenStore", havingValue = "jwt", matchIfMissing = true)
+    @ConditionalOnProperty(prefix = "service.oauth", name = "tokenStore", havingValue = "jwt")
     public static class JwtConfig {
 
         @Autowired

@@ -1,0 +1,13 @@
+rootProject.name = 'vic-tech_iot'
+
+include 'iot-components'
+include 'iot-components:iot-common'
+
+include 'iot_micoservices'
+include 'iot_micoservices:discovery-service'
+include 'iot_micoservices:config-service'
+include 'iot_micoservices:oauth2-service'
+include 'iot_micoservices:user-service'
+include 'iot_micoservices:device-service'
+include 'iot_micoservices:system-service'
+include 'iot_micoservices:webapp-manager-gateway'

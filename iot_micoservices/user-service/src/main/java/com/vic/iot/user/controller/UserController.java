@@ -20,7 +20,6 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @Slf4j
 @Api(tags = "账号管理")
-@RequestMapping("/users")
 public class UserController extends UserBaseController {
     @ApiOperation(value = "注册账号")
     @RequestMapping(value = "/register", method = RequestMethod.POST)

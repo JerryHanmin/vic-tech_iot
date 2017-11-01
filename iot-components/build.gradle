@@ -1,19 +1,6 @@
 version = "1.0"
 
 buildscript {
-    repositories {
-        maven { url "https://repo.spring.io/libs-release" }
-        maven {
-            url "http://repo.spring.io/milestone"
-        }
-        maven {
-            url "http://repo.spring.io/snapshot"
-        }
-        mavenLocal()
-        mavenCentral()
-        jcenter()
-    }
-
     ext {
         springBootVersion = "1.5.6.RELEASE"
     }
@@ -42,29 +29,4 @@ subprojects {
         targetCompatibility = 1.8
     }
 
-    repositories {
-        maven { url "https://repo.spring.io/libs-release" }
-        maven {
-            url "http://repo.spring.io/milestone"
-        }
-        maven {
-            url "http://repo.spring.io/snapshot"
-        }
-        mavenCentral()
-        mavenLocal()
-        jcenter()
-    }
-
-    dependencies {
-//        runtime(
-//                "org.springframework.boot:spring-boot-devtools"
-//        )
-    }
-    sourceSets {
-        main {
-            resources {
-                srcDir("profiles/$profile")
-            }
-        }
-    }
 }

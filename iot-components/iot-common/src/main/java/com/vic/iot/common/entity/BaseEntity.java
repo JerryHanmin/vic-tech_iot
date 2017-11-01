@@ -1,6 +1,7 @@
 package com.vic.iot.common.entity;
 
 import lombok.Data;
+
 import java.util.Map;
 
 
@@ -14,5 +15,5 @@ public class BaseEntity {
 
     private Long modifyTime = System.currentTimeMillis();
 
-    private Map additionalInfo;
+    private Map<String, Object> additionalInfo;
 }
