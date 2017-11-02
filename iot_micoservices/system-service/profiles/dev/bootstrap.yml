@@ -5,7 +5,7 @@ spring:
   profiles:
     active: eureka_client,mongo,common
   application:
-      name: user-service
+      name: system-service
   cloud:
     config:
       name: common-config
@@ -15,12 +15,12 @@ service:
   testProp:
     test: xxx
   swagger:
-    base_package: com.vic.iot.user.controller
+    base_package: com.vic.iot.system.controller
     title: Spring Boot中使用Swagger2构建RESTful APIs
-    description: 用户管理
+    description: 系统参数管理
     contact: hanmin
     version: 1.0
   eureka:
     uri: http://192.168.118.131:8761/eureka/
   mongodb:
-    uri: mongodb://192.168.118.131:27017/user
+    uri: mongodb://192.168.118.131:27017/system

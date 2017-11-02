@@ -11,7 +11,7 @@ import java.util.*;
 
 @Data
 @Document(collection = "oauth_client_details")
-public class OauthClientDetails extends BaseEntity{
+public class OauthClientDetails extends BaseEntity {
     @Id
     private String clientId;
 
@@ -23,9 +23,9 @@ public class OauthClientDetails extends BaseEntity{
 
     private Set<String> authorizedGrantTypes = Collections.emptySet();
 
-    private Set<String> registeredRedirectUris;
+    private Set<String> registeredRedirectUris = Collections.emptySet();
 
-    private Set<String> autoApproveScopes;
+    private Set<String> autoApproveScopes = Collections.emptySet();
 
     private List<GrantedAuthority> authorities = Collections.emptyList();
 

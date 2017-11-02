@@ -1,7 +1,7 @@
 package com.vic.iot.gateway.controller;
 
 
-import com.vic.iot.gateway.MyResponseErrorHandler;
+import com.vic.iot.common.ResponseErrorHandler;
 import com.vic.iot.gateway.model.AccessToken;
 import com.vic.iot.gateway.model.request.LoginRequest;
 import io.swagger.annotations.Api;
@@ -33,7 +33,7 @@ public class AuthController extends GatewayBaseController {
 
         String api = String.format(gatewayServiceProperties.getOauth2().getPrefix() + gatewayServiceProperties.getOauth2().getAccessTokenApi(), login.getAccount(), login.getPassword());
 
-        restTemplate.setErrorHandler(new MyResponseErrorHandler());
+        restTemplate.setErrorHandler(new ResponseErrorHandler());
 
         try {
             ResponseEntity<AccessToken> response = restTemplate.postForEntity(api, new HttpEntity(aouthHeader(gatewayServiceProperties.getOauth2().getClientId(), gatewayServiceProperties.getOauth2().getClientSecret())), AccessToken.class);
@@ -44,7 +44,7 @@ public class AuthController extends GatewayBaseController {
         } catch (Exception e) {
             log.error("oauth2.getAccessTokenApi.error : " + e.getLocalizedMessage());
 
-            MyResponseErrorHandler errorHandler = (MyResponseErrorHandler) restTemplate.getErrorHandler();
+            ResponseErrorHandler errorHandler = (ResponseErrorHandler) restTemplate.getErrorHandler();
             return new ResponseEntity<>(errorReponse("auth.login.error", errorMessage("oauth2.getAccessTokenApi.error", errorHandler.getResponseBody()), null, LocaleContextHolder.getLocale()), errorHandler.getHttpStatus());
         }
 

@@ -5,5 +5,6 @@ import lombok.Data;
 @Data
 public class SystemProperties {
     private String prefix = "http://system-service/system";
-    private String findClients = "/clients";
+    private String clients = "/clients";
+    private String findClientById = "/clients/%s";
 }

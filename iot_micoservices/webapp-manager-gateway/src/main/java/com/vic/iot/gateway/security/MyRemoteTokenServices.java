@@ -1,6 +1,6 @@
 package com.vic.iot.gateway.security;
 
-import com.vic.iot.gateway.MyResponseErrorHandler;
+import com.vic.iot.common.ResponseErrorHandler;
 import com.vic.iot.gateway.properties.GatewayServiceProperties;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
@@ -91,7 +91,7 @@ public class MyRemoteTokenServices implements ResourceServerTokenServices {
             headers.setContentType(MediaType.APPLICATION_FORM_URLENCODED);
         }
         //处理异常情况
-        restTemplate.setErrorHandler(new MyResponseErrorHandler());
+        restTemplate.setErrorHandler(new ResponseErrorHandler());
         try {
 
             @SuppressWarnings("rawtypes")
@@ -102,7 +102,7 @@ public class MyRemoteTokenServices implements ResourceServerTokenServices {
             return result;
 
         } catch (Exception e) {
-            MyResponseErrorHandler errorHandler = (MyResponseErrorHandler) restTemplate.getErrorHandler();
+            ResponseErrorHandler errorHandler = (ResponseErrorHandler) restTemplate.getErrorHandler();
             JSONObject reponse = JSONObject.fromObject(errorHandler.getResponseBody());
 
             //通常这里都是check_token ,如果异常那就是InvalidTokenException

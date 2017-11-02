@@ -46,7 +46,7 @@ public class DeviceTest {
         deviceInfo.put("model", "xx");
         device.setDeviceInfo(deviceInfo);
 
-        Map<String, String> info = Maps.newHashMap();
+        Map<String, Object> info = Maps.newHashMap();
         info.put("test", "test");
         device.setAdditionalInfo(info);
 
@@ -61,7 +61,7 @@ public class DeviceTest {
         supplier.setAddress("成都");
         supplier.setDescription("xxxx");
 
-        Map<String, String> info = Maps.newHashMap();
+        Map<String, Object> info = Maps.newHashMap();
         info.put("test", "test");
         supplier.setAdditionalInfo(info);
 

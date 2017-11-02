@@ -25,7 +25,7 @@ public class UserController extends UserBaseController {
     @RequestMapping(value = "/register", method = RequestMethod.POST)
     public HttpEntity<?> register(@RequestBody User user) {
         if (null != userRepository.findByAccountOrMobile(user.getAccount(), user.getMobile())) {
-            return new ResponseEntity<>(errorReponse("oauth2.account.register.existed", null, LocaleContextHolder.getLocale()), HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<>(HttpStatus.PRECONDITION_FAILED);
         }
 
         User createUser = new User();

@@ -10,4 +10,5 @@ public class OauthServiceProperties{
 
     private OauthProperties oauth = new OauthProperties();
     private UserProperties user = new UserProperties();
+    private SystemProperties system = new SystemProperties();
 }

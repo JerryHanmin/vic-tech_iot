@@ -1,4 +1,4 @@
-package com.vic.iot.gateway;
+package com.vic.iot.common;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpHeaders;
@@ -16,7 +16,7 @@ import java.io.InputStream;
 import java.nio.charset.Charset;
 
 @Slf4j
-public class MyResponseErrorHandler implements org.springframework.web.client.ResponseErrorHandler {
+public class ResponseErrorHandler implements org.springframework.web.client.ResponseErrorHandler {
     private HttpStatus httpStatus;
     private String responseStr;
     private byte[] responseByte;

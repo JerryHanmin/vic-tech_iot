@@ -47,7 +47,7 @@ public class I18nConfig extends WebMvcConfigurerAdapter {
 
         ResourceBundleMessageSource rbms = new ResourceBundleMessageSource();
         rbms.setDefaultEncoding("UTF-8");
-        rbms.setBasenames(environment.getProperty("spring.validation_messages.basename"));
+        rbms.setBasenames(environment.getProperty("spring.validation_messages.basename"),"http://localhost:19300/config/messages_en_US-dev.properties");
         validator.setValidationMessageSource(rbms);
         return validator;
     }

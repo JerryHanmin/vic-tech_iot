@@ -16,9 +16,6 @@ public class UserBaseController extends BaseController {
     protected UserRepository userRepository;
 
     @Autowired
-    protected MessageSource messageSource;
-
-    @Autowired
     protected UserServiceProperties userServiceProperties;
 
 }
