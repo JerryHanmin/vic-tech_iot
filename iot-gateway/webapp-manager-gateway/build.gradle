@@ -5,26 +5,10 @@ jar {
 }
 
 dependencies {
-    testCompile(
-            "org.springframework.boot:spring-boot-starter-test"
-    )
-    compile(
-            "org.springframework.boot:spring-boot-starter-web",
-            'org.springframework.boot:spring-boot-starter-data-rest',
-            "org.springframework.cloud:spring-cloud-starter-eureka",
-            "org.springframework.cloud:spring-cloud-starter-config",
-            "org.springframework.boot:spring-boot-starter-logging",
-            "org.springframework.boot:spring-boot-starter-security",
-            "org.springframework.boot:spring-boot-starter-validation",
-            "org.springframework.boot:spring-boot-starter-hateoas",
-            "org.springframework.security.oauth:spring-security-oauth2",
-            "org.springframework.boot:spring-boot-configuration-processor",
-            "org.projectlombok:lombok",
-            "net.sf.json-lib:json-lib:2.4:jdk15",
-            "io.springfox:springfox-swagger2:2.7.0",
-            "io.springfox:springfox-swagger-ui:2.7.0",
-            "net.logstash.logback:logstash-logback-encoder:4.9"
-    )
-
-    compile project(':iot-components:iot-common')
+    dependencies {
+        compile(
+                'org.springframework.boot:spring-boot-starter-data-rest',
+                "net.sf.json-lib:json-lib:2.4:jdk15"
+        )
+    }
 }
