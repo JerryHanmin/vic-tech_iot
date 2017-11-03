@@ -9,7 +9,11 @@
   spring-cloud版本 -> Dalston.SR4  <br />
   springboot版本 -> 1.5.6.RELEASE  <br />
   
-  邮箱： jerryhanm@foxmail.com
+  ****
+	
+|Author|韩珉 (Jerry)|
+|---|---
+|E-mail|han-min@hotmail.com 
 
 ## 已实现或正在进行中功能
 
