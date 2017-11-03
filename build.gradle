@@ -53,10 +53,13 @@ subprojects {
     apply plugin: "checkstyle"
 
     tasks.withType(Checkstyle) {
+        configFile = file("${project.rootDir}/config/checkstyle/checkstyle.xml")
+        exclude "**/test/**"
+
         reports {
             xml.enabled false
             html.enabled true
-            html.stylesheet resources.text.fromFile('config/checkstyle/xsl/checkstyle-simple.xsl')
+//            html.stylesheet resources.text.fromFile('${project.rootDir}/config/checkstyle/xsl/checkstyle-simple.xsl')
         }
     }
 }
