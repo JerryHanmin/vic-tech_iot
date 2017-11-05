@@ -25,6 +25,8 @@ subprojects {
     apply plugin: "spring-boot"
     apply from: rootProject.getRootDir().getAbsolutePath() + '/gradle/quality.gradle'
 
+    [compileJava, javadoc, compileTestJava]*.options*.encoding = 'UTF-8'
+
     dependencyManagement {
         imports {
             mavenBom "org.springframework.cloud:spring-cloud-dependencies:Dalston.SR4"
