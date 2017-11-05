@@ -13,7 +13,7 @@
 	
 |Author|韩珉 (Jerry)|
 |---|---
-|E-mail|han-min@hotmail.com 
+|EMail|han-min@hotmail.com 
 
   ****
 
@@ -51,8 +51,8 @@
 
   ****
   
-## iot-micoservices 微服务
-  微服务，提供具备原子性功能的服务，为业务逻辑的实现提供支持。
+## iot-framework 框架服务（为服务服务的服务）
+  为微服务提供框架支持，属于框架类服务。
 
 ### discovery-service
 
@@ -63,6 +63,11 @@
 
 ### config-service
   配置文件中心(这里我采用提供公共配置文件，当然是支持单个服务拥有自己专属的配置文件)
+
+  ****
+
+## iot-services 微服务（为网关服务的服务）
+  微服务，提供具备原子性功能的服务，为api网关业务逻辑的实现提供支持。
 
 ### oauth2-service
   鉴权服务，spring-security 与 oauth2 实现。
@@ -79,7 +84,7 @@
 
   ****
 
-## iot-gateway 网关服务
+## iot-gateways 网关服务（为前端服务的服务）
   对外网关服务，也是微服务，不过网关的维度是业务驱动，有怎样的业务逻辑需求就需要特定的网关支持，不具备原子性。
 
 ### webapp-manager-gateway
