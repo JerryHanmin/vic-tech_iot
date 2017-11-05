@@ -80,7 +80,7 @@ public class MyRemoteTokenServices implements ResourceServerTokenServices {
 
         String creds = String.format("%s:%s", clientId, clientSecret);
         try {
-            return "Basic " + new String(Base64.encode(creds.getBytes("UTF-8")));
+            return "Basic " + new String(Base64.encode(creds.getBytes("UTF-8")), "UTF-8");
         } catch (UnsupportedEncodingException e) {
             throw new IllegalStateException("Could not convert String");
         }
