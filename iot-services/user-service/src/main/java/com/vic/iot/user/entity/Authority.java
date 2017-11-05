@@ -9,7 +9,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Data
 @ToString
 @Document(collection = "authority")
-public class Authority extends BaseEntity{
+public class Authority extends BaseEntity {
 
     public Authority() {
     }

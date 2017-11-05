@@ -51,7 +51,6 @@ subprojects {
     sourceCompatibility = JavaVersion.VERSION_1_8
 
     apply plugin: "checkstyle"
-
     tasks.withType(Checkstyle) {
         configFile = file("${project.rootDir}/config/checkstyle/checkstyle.xml")
         exclude "**/test/**"
@@ -60,6 +59,27 @@ subprojects {
             xml.enabled false
             html.enabled true
 //            html.stylesheet resources.text.fromFile('${project.rootDir}/config/checkstyle/xsl/checkstyle-simple.xsl')
+        }
+    }
+
+    apply plugin: "findbugs"
+    tasks.withType(FindBugs) {
+        ignoreFailures = false
+        effort = "max"
+        reportLevel = "high"
+        excludeFilter = new File("${project.rootDir}/config/findbugs/findbugs.xml")
+        exclude "**/test/**"
+
+        reports {
+            xml.enabled = false
+            html.enabled = true
+            xml {
+                destination "$project.buildDir/reports/findbugs/findbugs.xml"
+            }
+            html {
+                destination "$project.buildDir/reports/findbugs/findbugs.html"
+            }
+//            html.stylesheet resources.text.fromFile('config/xsl/findbugs-custom.xsl')
         }
     }
 }

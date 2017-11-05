@@ -8,6 +8,4 @@ dependencies {
     compile(
             "org.springframework.boot:spring-boot-starter-data-mongodb"
     )
-
-    compile project(':iot-components:iot-common')
 }

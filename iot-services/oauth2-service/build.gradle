@@ -14,8 +14,6 @@ dependencies {
             "org.springframework.security:spring-security-jwt",
             "com.fasterxml.jackson.core:jackson-databind"
     )
-
-    compile project(':iot-components:iot-common')
     testCompile(
             "org.bitbucket.b_c:jose4j:0.5.1",
     )

@@ -7,6 +7,9 @@ subprojects {
 //        runtime(
 //                "org.springframework.boot:spring-boot-devtools"
 //        )
+
+        compile project(':iot-components:iot-common')
+
         compile(
                 "org.springframework.boot:spring-boot-starter-web",
                 "org.springframework.cloud:spring-cloud-starter-config",
@@ -16,7 +19,6 @@ subprojects {
                 "org.projectlombok:lombok",
                 "org.springframework.boot:spring-boot-starter-hateoas"
         )
-
         compile(
                 "net.logstash.logback:logstash-logback-encoder:4.9"
         )
