@@ -1,0 +1,33 @@
+apply plugin: "checkstyle"
+apply plugin: 'findbugs'
+apply plugin: 'pmd'
+
+def configDir = "${project.rootDir}/config"
+
+tasks.withType(Checkstyle) {
+    ignoreFailures = true
+    configFile = file("$configDir/checkstyle/checkstyle.xml")
+
+    reports {
+        xml.enabled = false
+        html.enabled = true
+    }
+}
+
+tasks.withType(FindBugs) {
+    ignoreFailures = true
+    excludeFilter = new File("$configDir/findbugs/findbugs.xml")
+
+    reports {
+        xml.enabled = false
+        html.enabled = true
+    }
+}
+
+tasks.withType(Pmd) {
+    ignoreFailures = true
+    reports {
+        xml.enabled = false
+        html.enabled = true
+    }
+}

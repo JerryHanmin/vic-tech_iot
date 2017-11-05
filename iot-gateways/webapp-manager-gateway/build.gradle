@@ -5,10 +5,7 @@ jar {
 }
 
 dependencies {
-    dependencies {
-        compile(
-                'org.springframework.boot:spring-boot-starter-data-rest',
-                "net.sf.json-lib:json-lib:2.4:jdk15"
-        )
-    }
+    compile(
+            'org.springframework.boot:spring-boot-starter-data-rest'
+    )
 }

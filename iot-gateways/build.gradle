@@ -10,14 +10,12 @@ subprojects {
                 "org.springframework.boot:spring-boot-starter-web",
                 "org.springframework.cloud:spring-cloud-starter-config",
                 "org.springframework.cloud:spring-cloud-starter-eureka",
-                'org.springframework.boot:spring-boot-starter-data-rest',
                 "org.springframework.boot:spring-boot-starter-logging",
                 "org.springframework.boot:spring-boot-starter-validation",
                 "org.springframework.boot:spring-boot-starter-hateoas",
                 "org.springframework.boot:spring-boot-starter-security",
                 "org.springframework.security.oauth:spring-security-oauth2",
-                "org.springframework.boot:spring-boot-configuration-processor",
-                "org.projectlombok:lombok"
+                "org.springframework.boot:spring-boot-configuration-processor"
         )
         compile(
                 "net.logstash.logback:logstash-logback-encoder:4.9"
