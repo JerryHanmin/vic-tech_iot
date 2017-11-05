@@ -11,5 +11,5 @@ include 'iot-micoservices:user-service'
 include 'iot-micoservices:device-service'
 include 'iot-micoservices:system-service'
 
-include 'iot-gateway'
-include 'iot-gateway:webapp-manager-gateway'
+include 'iot-gateways'
+include 'iot-gateways:webapp-manager-gateway'
