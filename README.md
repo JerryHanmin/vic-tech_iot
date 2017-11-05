@@ -80,7 +80,13 @@
         （我觉得微服务的设计应该具备原子性，单一功能且无状态化，而具体的业务逻辑都由api网关进行组装）
 
 ### user-service
-  用户服务，使用MongoDB数据库，学习下MongoDB。
+  用户服务，使用MongoDB数据库，用户数据管理。
+
+### device-service
+  设备服务，使用MongoDB数据库，设备数据管理。
+
+### system-service
+  用户服务，使用MongoDB数据库，系统相关数据管理。
 
   ****
 
