@@ -5,7 +5,7 @@
   * 设备网关 -> 与硬件设备交互，至少实现TCP（MQTT协议），消息队列（kafka），http方式
   * 设备管理平台 -> 管理网站（前后端完全分离，后台为微服务提供RESTFul的api，前台为AngularJS + Bootstarp响应式网站）
   
-  使用gradle构建，有配置gradle wapper，默认版本gradle-4.2-rc-2<br />
+  使用gradle构建，有配置gradle wapper，默认版本gradle-4.3<br />
   spring-cloud版本 -> Dalston.SR4  <br />
   springboot版本 -> 1.5.6.RELEASE  <br />
   
