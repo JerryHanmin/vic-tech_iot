@@ -2,6 +2,8 @@ package com.vic.iot.system.controller;
 
 import com.vic.iot.system.entity.OauthClientDetails;
 import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiResponse;
+import io.swagger.annotations.ApiResponses;
 import org.springframework.beans.BeanUtils;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpStatus;
@@ -17,7 +19,7 @@ public class OauthClientController extends SystemBaseController {
         return new ResponseEntity<>(oauthClientsDetailsRepository.findOne(clientId), HttpStatus.OK);
     }
 
-    @ApiOperation(value = "新增客户端")
+    @ApiOperation(value = "新增客户端", code = 201)
     @RequestMapping(method = RequestMethod.POST)
     public HttpEntity<?> addClientDetails(@RequestBody OauthClientDetails clientDetails) {
         OauthClientDetails existClientDetails = oauthClientsDetailsRepository.findOne(clientDetails.getClientId());
@@ -27,9 +29,24 @@ public class OauthClientController extends SystemBaseController {
             return new ResponseEntity<>(HttpStatus.PRECONDITION_FAILED);
     }
 
-    @ApiOperation(value = "修改客户端")
+    @ApiOperation(value = "修改客户端 (全量)", notes = "如果传入参数为空,数据库会修改为空值", response = OauthClientDetails.class)
+    @ApiResponses({@ApiResponse(code = 404, message = "客户端没有找到")})
     @RequestMapping(method = RequestMethod.PUT)
-    public HttpEntity<?> updateClientDetails(@RequestBody OauthClientDetails clientDetails) {
+    public HttpEntity<?> putClientDetails(@RequestBody OauthClientDetails clientDetails) {
+        OauthClientDetails existClientDetails = oauthClientsDetailsRepository.findOne(clientDetails.getClientId());
+        if (null == existClientDetails)
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        else {
+            OauthClientDetails newClientDetails = new OauthClientDetails();
+            BeanUtils.copyProperties(clientDetails, newClientDetails);
+            return new ResponseEntity<>(oauthClientsDetailsRepository.save(newClientDetails), HttpStatus.OK);
+        }
+    }
+
+    @ApiOperation(value = "修改客户端 (按需)", notes = "如果传入参数为空,会被忽略,数据库不做修改", response = OauthClientDetails.class)
+    @ApiResponses({@ApiResponse(code = 404, message = "客户端没有找到")})
+    @RequestMapping(method = RequestMethod.PATCH)
+    public HttpEntity<?> patchClientDetails(@RequestBody OauthClientDetails clientDetails) {
         OauthClientDetails existClientDetails = oauthClientsDetailsRepository.findOne(clientDetails.getClientId());
         if (null == existClientDetails)
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
@@ -39,20 +56,8 @@ public class OauthClientController extends SystemBaseController {
         }
     }
 
-    @ApiOperation(value = "修改客户端密码")
-    @RequestMapping(value = "/{clientId}", method = RequestMethod.PUT)
-    public HttpEntity<?> updateClientSecret(@PathVariable String clientId, @RequestBody String secret) {
-        OauthClientDetails existClientDetails = oauthClientsDetailsRepository.findOne(clientId);
-        if (null == existClientDetails)
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        else {
-            existClientDetails.setClientSecret(secret);
-            oauthClientsDetailsRepository.save(existClientDetails);
-            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-        }
-    }
-
-    @ApiOperation(value = "删除客户端")
+    @ApiOperation(value = "删除客户端", code = 204)
+    @ApiResponses({@ApiResponse(code = 404, message = "客户端没有找到")})
     @RequestMapping(value = "/{clientId}", method = RequestMethod.DELETE)
     public HttpEntity<?> removeClientDetails(@PathVariable String clientId) {
         OauthClientDetails existClientDetails = oauthClientsDetailsRepository.findOne(clientId);

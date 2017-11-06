@@ -1,0 +1,11 @@
+version = '1.0'
+jar {
+    baseName = 'iot-banner'
+    version = '0.1.0'
+}
+
+dependencies {
+    compile(
+            'org.springframework.boot:spring-boot-starter'
+    )
+}

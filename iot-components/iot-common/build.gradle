@@ -16,4 +16,8 @@ dependencies {
             "io.springfox:springfox-swagger-ui:2.7.0",
             "net.sf.json-lib:json-lib:2.4:jdk15",
     )
+
+    compile project(
+            ':iot-components:iot-banner'
+    )
 }

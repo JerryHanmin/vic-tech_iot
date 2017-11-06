@@ -60,19 +60,23 @@ public class Oauth2ClientDetailsService extends Oauth2BaseService implements Cli
 
     @Override
     public void updateClientSecret(String clientId, String secret) throws NoSuchClientException {
-        String api = String.format(serviceProperties.getSystem().getPrefix() + serviceProperties.getSystem().getFindClientById(), clientId);
+        BaseClientDetails clientDetails = new BaseClientDetails();
+        clientDetails.setClientId(clientId);
+        clientDetails.setClientSecret(secret);
+
+        String api = serviceProperties.getSystem().getPrefix() + serviceProperties.getSystem().getClients();
         restTemplate.setErrorHandler(new ResponseErrorHandler());
 
         try {
-            restTemplate.put(api, secret, ClientDetails.class);
-
+            restTemplate.patchForObject(api, clientDetails, ClientDetails.class);
         } catch (Exception e) {
             log.error(e.getMessage(), e);
 
             ResponseErrorHandler errorHandler = (ResponseErrorHandler) restTemplate.getErrorHandler();
             if (errorHandler.getHttpStatus().equals(HttpStatus.NOT_FOUND))
-                throw new NoSuchClientException("No client found with id = " + clientId);
+                throw new NoSuchClientException("No client found with id = " + clientDetails.getClientId());
         }
+
     }
 
     @Override

@@ -3,11 +3,14 @@ package com.vic.iot.user.controller;
 import com.vic.iot.user.entity.User;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiResponse;
+import io.swagger.annotations.ApiResponses;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
+import org.springframework.hateoas.PagedResources;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -21,7 +24,8 @@ import org.springframework.web.bind.annotation.RestController;
 @Slf4j
 @Api(tags = "账号管理")
 public class UserController extends UserBaseController {
-    @ApiOperation(value = "注册账号")
+    @ApiOperation(value = "注册账号", code = 201)
+    @ApiResponses({@ApiResponse(code = 412, message = "前置条件未达成,用户已经存在不能注册")})
     @RequestMapping(value = "/register", method = RequestMethod.POST)
     public HttpEntity<?> register(@RequestBody User user) {
         if (null != userRepository.findByAccountOrMobile(user.getAccount(), user.getMobile())) {

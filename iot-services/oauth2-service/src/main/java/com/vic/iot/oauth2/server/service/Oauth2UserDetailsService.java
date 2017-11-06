@@ -22,7 +22,7 @@ public class Oauth2UserDetailsService extends Oauth2BaseService implements UserD
         if (user != null)
             return user;
         else
-            throw new UsernameNotFoundException("用户[" + username + "]不存在");
+            throw new UsernameNotFoundException("user [" + username + "] not existed");
 
     }
 

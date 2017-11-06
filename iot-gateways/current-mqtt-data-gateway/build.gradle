@@ -1,0 +1,18 @@
+version = '1.0'
+jar {
+    baseName = 'current-mqtt-data-gateway' + "-$profile"
+    version = '0.1.0'
+}
+
+dependencies {
+    compile(
+            "org.springframework.cloud:spring-cloud-starter-config",
+            "org.springframework.cloud:spring-cloud-starter-eureka",
+            "org.springframework.boot:spring-boot-starter-logging",
+            "org.springframework.boot:spring-boot-configuration-processor"
+    )
+
+    compile project(
+            ':iot-components:iot-banner'
+    )
+}

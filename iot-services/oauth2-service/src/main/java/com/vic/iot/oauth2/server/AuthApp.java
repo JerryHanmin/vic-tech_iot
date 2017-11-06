@@ -1,6 +1,6 @@
 package com.vic.iot.oauth2.server;
 
-import com.vic.iot.common.BuddhaBanner;
+import com.vic.iot.banner.BuddhaBanner;
 import com.vic.iot.oauth2.server.properties.OauthServiceProperties;
 import org.springframework.boot.Banner;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

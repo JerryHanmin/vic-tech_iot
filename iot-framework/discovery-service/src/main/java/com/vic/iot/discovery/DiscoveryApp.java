@@ -1,19 +1,19 @@
-package com.vic.iot.config;
+package com.vic.iot.discovery;
 
 import com.vic.iot.banner.BuddhaBanner;
 import org.springframework.boot.Banner;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
-import org.springframework.cloud.config.server.EnableConfigServer;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
+import org.springframework.cloud.netflix.eureka.server.EnableEurekaServer;
 
 @EnableEurekaClient
-@EnableConfigServer
+@EnableEurekaServer
 @SpringBootApplication
-public class ConfigApp {
+public class DiscoveryApp {
 
 	public static void main(String[] args) throws Exception {
-		new SpringApplicationBuilder().banner(new BuddhaBanner()).bannerMode(Banner.Mode.LOG).sources(ConfigApp.class).run(args);
+		new SpringApplicationBuilder().banner(new BuddhaBanner()).bannerMode(Banner.Mode.LOG).sources(DiscoveryApp.class).run(args);
 	}
 
 }

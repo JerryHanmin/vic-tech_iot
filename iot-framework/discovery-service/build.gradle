@@ -9,4 +9,7 @@ dependencies {
             "org.springframework.cloud:spring-cloud-starter-config",
             "org.springframework.cloud:spring-cloud-starter-eureka-server"
     )
+    compile project(
+            ':iot-components:iot-banner'
+    )
 }

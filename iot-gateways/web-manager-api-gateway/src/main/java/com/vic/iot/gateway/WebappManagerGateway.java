@@ -1,6 +1,6 @@
 package com.vic.iot.gateway;
 
-import com.vic.iot.common.BuddhaBanner;
+import com.vic.iot.banner.BuddhaBanner;
 import com.vic.iot.gateway.properties.GatewayServiceProperties;
 import org.springframework.boot.Banner;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

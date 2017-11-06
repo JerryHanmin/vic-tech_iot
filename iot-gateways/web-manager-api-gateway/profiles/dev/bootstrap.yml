@@ -4,7 +4,7 @@ spring:
   profiles:
     active: eureka_client,web_gateway,common
   application:
-      name: webapp-manager-gateway
+      name: web-manager-api-gateway
   cloud:
     config:
       name: common-config
