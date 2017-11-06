@@ -9,6 +9,6 @@ dependencies {
             "org.springframework.cloud:spring-cloud-config-server",
     )
     compile project(
-            ':iot-components:iot-banner'
+            ':iot-components:spring-boot-starter-banner'
     )
 }

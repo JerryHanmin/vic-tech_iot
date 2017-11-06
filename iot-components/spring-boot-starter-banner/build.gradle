@@ -1,6 +1,6 @@
 version = '1.0'
 jar {
-    baseName = 'iot-banner'
+    baseName = 'spring-boot-starter-banner'
     version = '0.1.0'
 }
 

@@ -13,6 +13,6 @@ dependencies {
     )
 
     compile project(
-            ':iot-components:iot-banner'
+            ':iot-components:spring-boot-starter-banner'
     )
 }

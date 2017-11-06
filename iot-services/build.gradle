@@ -8,7 +8,7 @@ subprojects {
 //                "org.springframework.boot:spring-boot-devtools"
 //        )
 
-        compile project(':iot-components:iot-common')
+        compile project(':iot-components:spring-boot-starter-common')
 
         compile(
                 "org.springframework.boot:spring-boot-starter-web",
