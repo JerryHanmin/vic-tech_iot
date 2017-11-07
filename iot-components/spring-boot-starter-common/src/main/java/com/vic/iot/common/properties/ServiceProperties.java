@@ -1,6 +1,7 @@
 package com.vic.iot.common.properties;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
 @Data
@@ -28,11 +29,13 @@ public class ServiceProperties {
     private I18nProperties i18n = new I18nProperties();
 
     @Data
+    @NoArgsConstructor
     public static class I18nProperties {
         private Boolean enable = true;
     }
 
     @Data
+    @NoArgsConstructor
     public static class EurekaProperties {
         /**
          * eureka 的地址(defaultZone) 的配置
@@ -41,6 +44,7 @@ public class ServiceProperties {
     }
 
     @Data
+    @NoArgsConstructor
     public static class MysqlProperties {
         private String host;
         private String database;
@@ -49,11 +53,13 @@ public class ServiceProperties {
     }
 
     @Data
+    @NoArgsConstructor
     public static class RedisProperties {
         private String host;
     }
 
     @Data
+    @NoArgsConstructor
     public static class MongodbProperties {
         private String uri;
     }
