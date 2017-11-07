@@ -3,7 +3,7 @@
 . /etc/profile
 
 programe_location="$(dirname -- $(readlink -f -- "$0"))"
-#java_path="/usr/lib/jvm/jdk1.8.0_65/bin/"
+java_path="/usr/lib/jvm/jdk1.8.0_65/bin/"
 config='--spring.cloud.config.uri=http://192.168.118.131:19300/config'
 eureka='--service.eureka.uri=http://192.168.118.131:8761/eureka/'
 cassandra='--service.cassandra.uri:192.168.118.131'
@@ -12,7 +12,7 @@ kafka='--service.kafka.zookeeper.connect=192.168.118.131:2181 --service.kafka.br
 avrogit='--service.git.uri=http://sys@172.28.24.45:8118/git/changhongit.git --service.git.username=sys --service.git.password=sys'
 mysql='--spring.datasource.url=jdbc:mysql://192.168.118.131:3306/${service.mysql.database}?characterEncoding=utf-8 --spring.datasource.username=sst_user --spring.datasource.password=123456'
 ftp='--service.ftp.server=192.168.118.131 --service.ftp.port=21 --service.ftp.username=ftpuser --service.ftp.password=ftpuser'
-log='--logging.config=/usr/local/thundersoft/logback.xml'
+log='--logging.config=/usr/local/service/logback.xml'
 
 params="$config $eureka $cassandra $elasticsearch $kafka $avrogit $mysql $ftp $log"
 java_mem="-Xms128m -Xmx256m"
