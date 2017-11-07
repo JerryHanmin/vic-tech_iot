@@ -24,14 +24,15 @@ public class ServiceProperties {
     private EurekaProperties eureka = new EurekaProperties();
 
     @Data
-    private static class EurekaProperties {
+    public static class EurekaProperties {
         /**
          * eureka 的地址(defaultZone) 的配置
          */
         private String uri;
     }
+
     @Data
-    private static class MysqlProperties {
+    public static class MysqlProperties {
         private String host;
         private String database;
         private String username;
@@ -39,12 +40,12 @@ public class ServiceProperties {
     }
 
     @Data
-    private static class RedisProperties {
+    public static class RedisProperties {
         private String host;
     }
 
     @Data
-    private static class MongodbProperties {
+    public static class MongodbProperties {
         private String uri;
     }
 }

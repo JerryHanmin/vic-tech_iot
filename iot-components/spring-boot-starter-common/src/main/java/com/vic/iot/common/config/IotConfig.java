@@ -14,12 +14,6 @@ import org.springframework.web.client.RestTemplate;
 @EnableConfigurationProperties(ServiceProperties.class)
 public class IotConfig {
 
-    @Bean
-    @ConditionalOnMissingBean
-    public ServiceProperties serviceProperties() {
-        return new ServiceProperties();
-    }
-
     /**
      * 注入使用负载均衡的RestTemplate , 否则无法使用服务名访问服务
      */

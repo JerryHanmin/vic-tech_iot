@@ -79,7 +79,7 @@ public class SwaggerProperties {
 
     @Data
     @NoArgsConstructor
-    private static class GlobalOperationParameter {
+    public static class GlobalOperationParameter {
         /**
          * 参数名
          **/
@@ -113,7 +113,7 @@ public class SwaggerProperties {
 
     @Data
     @NoArgsConstructor
-    private static class DocketInfo {
+    public static class DocketInfo {
 
         /**
          * 标题
@@ -162,7 +162,7 @@ public class SwaggerProperties {
 
     @Data
     @NoArgsConstructor
-    private static class Contact {
+    public static class Contact {
 
         /**
          * 联系人
