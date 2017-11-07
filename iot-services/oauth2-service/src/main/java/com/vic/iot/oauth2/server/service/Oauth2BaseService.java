@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 @Slf4j
-public class Oauth2BaseService extends BaseService{
+public class Oauth2BaseService extends BaseService {
 
     @Autowired
     protected OauthServiceProperties serviceProperties;

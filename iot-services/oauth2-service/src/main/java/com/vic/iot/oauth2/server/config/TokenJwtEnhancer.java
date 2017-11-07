@@ -17,12 +17,13 @@ public class TokenJwtEnhancer implements TokenEnhancer {
     @Override
     public OAuth2AccessToken enhance(OAuth2AccessToken accessToken, OAuth2Authentication authentication) {
         String userName = authentication.getUserAuthentication().getName();
-        User user = (User) authentication.getUserAuthentication().getPrincipal();// 与登录时候放进去的UserDetail实现类一直查看link{SecurityConfiguration}
-        /** 自定义一些token属性 ***/
-        final Map<String, Object> infos = new HashMap<>();
-        infos.put("userName", userName);
-        infos.put("roles", user.getAuthorities());
-        ((DefaultOAuth2AccessToken) accessToken).setAdditionalInformation(infos);
+        // 与登录时候放进去的UserDetail实现类一致
+        User user = (User) authentication.getUserAuthentication().getPrincipal();
+        //自定义一些token属性
+        final Map<String, Object> info = new HashMap<>();
+        info.put("username", userName);
+        info.put("roles", user.getAuthorities());
+        ((DefaultOAuth2AccessToken) accessToken).setAdditionalInformation(info);
         return accessToken;
     }
 

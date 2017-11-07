@@ -12,7 +12,6 @@ import java.util.UUID;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class User {
     private String userId = UUID.randomUUID().toString();
-    private String loginname;
     private String username;
     private String password;
     private Set<GrantedAuthority> authorities;

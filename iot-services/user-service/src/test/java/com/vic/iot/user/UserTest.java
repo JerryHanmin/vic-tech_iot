@@ -1,9 +1,6 @@
 package com.vic.iot.user;
 
-import com.vic.iot.common.properties.ServiceProperties;
-import com.vic.iot.user.entity.Authority;
 import com.vic.iot.user.entity.User;
-import com.vic.iot.user.properties.UserServiceProperties;
 import com.vic.iot.user.repository.UserRepository;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -11,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import java.util.*;
+import java.util.UUID;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = UserApp.class, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)

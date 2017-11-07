@@ -7,8 +7,8 @@ import org.springframework.web.client.RestTemplate;
 
 @Service
 public class BaseService {
-    @Autowired
-    protected RestTemplate restTemplate;
-    @Autowired
-    protected AsyncRestTemplate asyncRestTemplate;
+	@Autowired
+	protected RestTemplate restTemplate;
+	@Autowired
+	protected AsyncRestTemplate asyncRestTemplate;
 }

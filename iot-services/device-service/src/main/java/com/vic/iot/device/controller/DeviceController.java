@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @Slf4j
 @Api(tags = "设备管理")
-@RequestMapping("/devies")
+@RequestMapping("/devices")
 public class DeviceController extends DeviceBaseController {
 
 }

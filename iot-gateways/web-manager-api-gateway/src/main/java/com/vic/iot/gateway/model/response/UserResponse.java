@@ -10,9 +10,8 @@ import java.util.Set;
 @Data
 @ToString
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class UserReponse {
+public class UserResponse {
     private String userId;
-    private String loginname;
     private String username;
     private Set<GrantedAuthority> authorities;
     private boolean accountNonExpirede = true;

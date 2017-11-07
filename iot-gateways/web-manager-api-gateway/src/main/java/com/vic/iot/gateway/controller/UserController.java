@@ -5,7 +5,7 @@ import com.vic.iot.common.utils.PageQueryParaUtils;
 import com.vic.iot.gateway.model.GrantedAuthority;
 import com.vic.iot.gateway.model.User;
 import com.vic.iot.gateway.model.request.UserRequest;
-import com.vic.iot.gateway.model.response.UserReponse;
+import com.vic.iot.gateway.model.response.UserResponse;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
@@ -56,7 +56,7 @@ public class UserController extends GatewayBaseController {
     public ResponseEntity<?> findUsers(@PageableDefault(page = 0, size = 20) Pageable pageable) {
         String api = gatewayServiceProperties.getUser().getPrefix() + gatewayServiceProperties.getUser().getUsers();
         String url = PageQueryParaUtils.buildUrl(api, null, pageable);
-        return restTemplate.exchange(url, HttpMethod.GET, HttpEntity.EMPTY, new ParameterizedTypeReference<PagedResources<UserReponse>>() {
+        return restTemplate.exchange(url, HttpMethod.GET, HttpEntity.EMPTY, new ParameterizedTypeReference<PagedResources<UserResponse>>() {
         });
     }
 

@@ -185,10 +185,6 @@ public class SwaggerAutoConfiguration implements BeanFactoryAware {
 
     /**
      * 局部参数按照name覆盖局部参数
-     *
-     * @param globalOperationParameters
-     * @param docketOperationParameters
-     * @return
      */
     private List<Parameter> assemblyGlobalOperationParameters(
             List<SwaggerProperties.GlobalOperationParameter> globalOperationParameters,

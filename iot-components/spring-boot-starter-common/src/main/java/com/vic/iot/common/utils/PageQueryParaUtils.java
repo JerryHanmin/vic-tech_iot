@@ -1,5 +1,6 @@
 package com.vic.iot.common.utils;
 
+import lombok.NoArgsConstructor;
 import org.springframework.data.domain.Pageable;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
@@ -11,9 +12,8 @@ import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.Map;
 
-public class PageQueryParaUtils {
-    private PageQueryParaUtils() {
-    }
+@NoArgsConstructor
+public final class PageQueryParaUtils {
 
     /**
      * 拼接url查询参数，以?a=xxx&b=xxx字符串形式返回url
@@ -60,9 +60,9 @@ public class PageQueryParaUtils {
             map.put("size", String.valueOf(pageable.getPageSize()));
         }
         if (null != obj) {
-//			Field[] fields = obj.getClass().getDeclaredFields();
+//            Field[] fields = obj.getClass().getDeclaredFields();
             PropertyDescriptor propertyDescriptor = null;
-//			Class<?> superclass = obj.getClass().getSuperclass();
+//            Class<?> superclass = obj.getClass().getSuperclass();
             // obj循环向上转型
             for (Class<?> clz = obj.getClass(); clz != Object.class; clz = clz.getSuperclass()) {
                 if (clz != null) {
@@ -98,4 +98,3 @@ public class PageQueryParaUtils {
         }
     }
 }
-

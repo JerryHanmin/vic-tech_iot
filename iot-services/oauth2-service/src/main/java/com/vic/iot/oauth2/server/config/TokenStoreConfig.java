@@ -1,6 +1,3 @@
-/**
- *
- */
 package com.vic.iot.oauth2.server.config;
 
 import com.vic.iot.oauth2.server.properties.OauthServiceProperties;
