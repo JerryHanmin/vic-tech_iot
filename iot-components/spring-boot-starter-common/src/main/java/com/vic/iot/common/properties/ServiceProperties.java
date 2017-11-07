@@ -22,6 +22,15 @@ public class ServiceProperties {
      * 服务发现配置
      */
     private EurekaProperties eureka = new EurekaProperties();
+    /**
+     * 国际化配置
+     */
+    private I18nProperties i18n = new I18nProperties();
+
+    @Data
+    public static class I18nProperties {
+        private Boolean enable = true;
+    }
 
     @Data
     public static class EurekaProperties {

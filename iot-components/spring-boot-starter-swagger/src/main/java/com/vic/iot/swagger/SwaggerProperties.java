@@ -14,9 +14,9 @@ import java.util.Map;
 public class SwaggerProperties {
 
     /**
-     * 是否开启swagger
+     * 是否开启swagger 默认为true
      **/
-    private Boolean enabled;
+    private Boolean enabled = true;
 
     /**
      * 标题
