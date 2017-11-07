@@ -1,6 +1,7 @@
 package com.vic.iot.common.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.support.ResourceBundleMessageSource;
@@ -16,6 +17,7 @@ import org.springframework.web.servlet.i18n.SessionLocaleResolver;
 import java.util.Locale;
 
 @Configuration
+@ConditionalOnProperty(name = "service.i18n.enabled", matchIfMissing = true)
 public class I18nConfig extends WebMvcConfigurerAdapter {
 
     @Autowired

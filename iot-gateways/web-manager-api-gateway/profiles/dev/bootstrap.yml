@@ -15,8 +15,18 @@ service:
     base_package: com.vic.iot.gateway.controller
     title: Spring Boot中使用Swagger2构建RESTful APIs
     description: 管理网站的Api 网关
-    contact: hanmin
+    contact:
+      name: hanmin
+      email: han-min@hotmail.com
+      url: https://github.com/JerryHanmin/vic-tech_iot
     version: 1.0
+    global_operation_parameters:
+      - name: Authorization
+        description: Oauth2认证令牌
+        modelRef: string
+        parameterType: header
+        required: false
+        default_value: Bearer
   eureka:
     uri: http://192.168.118.131:8761/eureka/
 

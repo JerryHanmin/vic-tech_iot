@@ -3,6 +3,7 @@ rootProject.name = 'vic-tech_iot'
 include 'iot-components'
 include 'iot-components:spring-boot-starter-common'
 include 'iot-components:spring-boot-starter-banner'
+include 'iot-components:spring-boot-starter-swagger'
 
 include 'iot-framework'
 include 'iot-framework:discovery-service'

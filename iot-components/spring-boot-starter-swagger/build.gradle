@@ -1,0 +1,17 @@
+version = '1.0'
+jar {
+    baseName = 'spring-boot-starter-swagger'
+    version = '0.1.0'
+}
+
+dependencies {
+    compile(
+            "org.springframework.boot:spring-boot-starter",
+            "org.springframework.boot:spring-boot-configuration-processor"
+    )
+    compile(
+            "io.springfox:springfox-swagger2:2.7.0",
+            "io.springfox:springfox-swagger-ui:2.7.0",
+            "io.springfox:springfox-bean-validators:2.7.0"
+    )
+}

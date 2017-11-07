@@ -3,7 +3,7 @@ server:
 
 spring:
   profiles:
-    active: eureka_client,mongo,common
+    active: eureka_client,mongodb,common
   application:
       name: device-service
   cloud:
@@ -20,5 +20,8 @@ service:
     base_package: com.vic.iot.device.controller
     title: Spring Boot中使用Swagger2构建RESTful APIs
     description: 设备管理
-    contact: hanmin
+    contact:
+      name: hanmin
+      email: han-min@hotmail.com
+      url: https://github.com/JerryHanmin/vic-tech_iot
     version: 1.0

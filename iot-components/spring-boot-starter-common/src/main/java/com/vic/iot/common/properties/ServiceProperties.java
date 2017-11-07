@@ -1,11 +1,51 @@
 package com.vic.iot.common.properties;
 
-
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
-@ConfigurationProperties(prefix = "service")
 @Data
+@ConfigurationProperties("service")
 public class ServiceProperties {
-    private SwaggerProperties swagger = new SwaggerProperties();
+    /**
+     * Redis 数据库配置
+     */
+    private RedisProperties redis = new RedisProperties();
+    /**
+     * Mysql 数据库配置
+     */
+    private MysqlProperties mysql = new MysqlProperties();
+    /**
+     * MongoDB 数据库配置
+     */
+    private MongodbProperties mongodb = new MongodbProperties();
+    /**
+     * 服务发现配置
+     */
+    private EurekaProperties eureka = new EurekaProperties();
+
+    @Data
+    private static class EurekaProperties {
+        /**
+         * eureka 的地址(defaultZone) 的配置
+         */
+        private String uri;
+    }
+    @Data
+    private static class MysqlProperties {
+        private String host;
+        private String database;
+        private String username;
+        private String password;
+    }
+
+    @Data
+    private static class RedisProperties {
+        private String host;
+    }
+
+    @Data
+    private static class MongodbProperties {
+        private String uri;
+    }
 }
+

@@ -3,7 +3,7 @@ server:
 
 spring:
   profiles:
-    active: eureka_client,oauth2,mongo,redis,common
+    active: eureka_client,oauth2,mongodb,redis,common
   application:
       name: oauth2-service
   cloud:
@@ -11,10 +11,14 @@ spring:
       name: common-config
       uri: http://192.168.118.131:19300/config
 service:
+  swagger:
     base_package: org.springframework.security.oauth2.provider.endpoint
     title: Spring Boot中使用Swagger2构建RESTful APIs
     description: Oauth2鉴权服务
-    contact: hanmin
+    contact:
+      name: hanmin
+      email: han-min@hotmail.com
+      url: https://github.com/JerryHanmin/vic-tech_iot
     version: 1.0
   eureka:
     uri: http://192.168.118.131:8761/eureka/
