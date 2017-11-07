@@ -1,8 +1,6 @@
 package com.vic.iot.common.config;
 
 import com.vic.iot.common.properties.ServiceProperties;
-import com.vic.iot.swagger.SwaggerProperties;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.context.annotation.Bean;
@@ -23,6 +21,9 @@ public class IotConfig {
         return new RestTemplate();
     }
 
+    /**
+     * 异步RestTemplate , 当需要高并发访问的时候应该用异步的方式提高效率
+     */
     @LoadBalanced
     @Bean
     public AsyncRestTemplate asyncRestTemplate(){
