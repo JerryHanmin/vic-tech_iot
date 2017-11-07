@@ -16,11 +16,7 @@ subprojects {
                 "org.springframework.cloud:spring-cloud-starter-eureka",
                 "org.springframework.boot:spring-boot-starter-logging",
                 "org.springframework.boot:spring-boot-configuration-processor",
-                "org.projectlombok:lombok",
                 "org.springframework.boot:spring-boot-starter-hateoas"
-        )
-        compile(
-                "net.logstash.logback:logstash-logback-encoder:4.9"
         )
 
         testCompile(
