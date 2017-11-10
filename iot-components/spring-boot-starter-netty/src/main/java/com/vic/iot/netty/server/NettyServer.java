@@ -13,13 +13,12 @@ import javax.annotation.PreDestroy;
 public class NettyServer {
 
     private Channel serverChannel;
+
     @Autowired
     private NettyServerProperties nettyServerProperties;
-    @Autowired
-    private ServerBootstrap serverBootstrap;
 
 
-    public void start() throws Exception {
+    public void start(ServerBootstrap serverBootstrap) throws Exception {
         log.info("netty server is starting");
         serverChannel = serverBootstrap
                 .bind(nettyServerProperties.getTcpPort())

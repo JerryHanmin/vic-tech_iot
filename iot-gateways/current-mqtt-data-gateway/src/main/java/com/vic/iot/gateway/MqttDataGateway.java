@@ -1,9 +1,8 @@
 package com.vic.iot.gateway;
 
 import com.vic.iot.banner.BuddhaBanner;
-import com.vic.iot.gateway.handler.MqttAuthHandler;
 import com.vic.iot.netty.server.NettyServer;
-import com.vic.iot.netty.server.ServerChannelInitializer;
+import io.netty.bootstrap.ServerBootstrap;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.Banner;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -15,21 +14,28 @@ import org.springframework.context.ConfigurableApplicationContext;
 @EnableEurekaClient
 public class MqttDataGateway {
 
-    @Autowired
-    private MqttAuthHandler mqttAuthHandler;
 
     public static void main(String[] args) {
-        ConfigurableApplicationContext context = new SpringApplicationBuilder()
+        new SpringApplicationBuilder()
                 .banner(new BuddhaBanner())
                 .bannerMode(Banner.Mode.LOG)
                 .sources(MqttDataGateway.class)
                 .run(args);
 
-        NettyServer server = context.getBean(NettyServer.class);
+    }
+
+    @Autowired
+    private ServerBootstrap serverBootstrap;
+    @Autowired
+    private NettyServer nettyServer;
+
+    @Autowired
+    private void startServer(){
         try {
-            server.start();
+            nettyServer.start(serverBootstrap);
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
+
 }

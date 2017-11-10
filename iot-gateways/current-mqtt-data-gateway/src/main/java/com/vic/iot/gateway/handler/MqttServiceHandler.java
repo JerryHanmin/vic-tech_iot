@@ -1,9 +1,8 @@
-package com.vic.iot.netty.server.handler;
+package com.vic.iot.gateway.handler;
 
 import io.netty.channel.ChannelHandler;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
-import io.netty.util.Attribute;
 import io.netty.util.AttributeKey;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -16,7 +15,7 @@ import org.springframework.stereotype.Component;
 @ChannelHandler.Sharable
 @Slf4j
 @Qualifier("serviceHandler")
-public class DefaultServiceHandler extends ChannelInboundHandlerAdapter {
+public class MqttServiceHandler extends ChannelInboundHandlerAdapter {
     private final AttributeKey<String> clientInfo = AttributeKey.valueOf("clientInfo");
 
     @Override
@@ -32,9 +31,6 @@ public class DefaultServiceHandler extends ChannelInboundHandlerAdapter {
 
     @Override
     public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception {
-        Attribute<String> attr = ctx.attr(clientInfo);
-        String clientId = attr.get();
-        log.error("Connection closed, client is " + clientId);
-        cause.printStackTrace();
+        log.error(cause.getMessage(), cause);
     }
 }

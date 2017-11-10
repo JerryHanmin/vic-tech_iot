@@ -22,3 +22,6 @@ include 'iot-gateways:current-mqtt-data-gateway'
 
 include 'iot-test-projects'
 include 'iot-test-projects:mqtt-client'
+
+include 'iot-webapp'
+include 'iot-webapp:iot-manager'

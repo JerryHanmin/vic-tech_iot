@@ -1,8 +1,8 @@
 package com.vic.iot.gateway.config;
 
+import com.vic.iot.gateway.handler.IdleTimeoutHandler;
 import com.vic.iot.gateway.handler.MqttAuthHandler;
-import com.vic.iot.netty.server.handler.DefaultIdleTimeoutHandler;
-import com.vic.iot.netty.server.handler.DefaultServiceHandler;
+import com.vic.iot.gateway.handler.MqttServiceHandler;
 import io.netty.channel.ChannelInitializer;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.handler.timeout.IdleStateHandler;
@@ -18,11 +18,11 @@ public class ServerChannelInitializer extends ChannelInitializer<SocketChannel> 
     private static final int ALL_IDLE_TIME_SECONDS = 40; //读写全部空闲40秒
 
     @Autowired
-    private MqttAuthHandler authHandler;
+    private MqttAuthHandler mqttAuthHandler;
     @Autowired
-    private DefaultServiceHandler serviceHandler;
+    private MqttServiceHandler mqttServiceHandler;
     @Autowired
-    private DefaultIdleTimeoutHandler idleTimeoutHandler;
+    private IdleTimeoutHandler idleTimeoutHandler;
 
     @Override
     protected void initChannel(SocketChannel socketChannel) throws Exception {
@@ -32,7 +32,7 @@ public class ServerChannelInitializer extends ChannelInitializer<SocketChannel> 
                         ALL_IDLE_TIME_SECONDS,
                         TimeUnit.SECONDS))
                 .addLast("idleTimeoutHandler", idleTimeoutHandler)
-                .addLast("authHandler", authHandler)
-                .addLast("serviceHandler", serviceHandler);
+                .addLast("mqttAuthHandler", mqttAuthHandler)
+                .addLast("mqttServiceHandler", mqttServiceHandler);
     }
 }
