@@ -6,13 +6,10 @@ jar {
 
 dependencies {
     compile(
-            "org.springframework.cloud:spring-cloud-starter-config",
-            "org.springframework.cloud:spring-cloud-starter-eureka",
             "org.springframework.boot:spring-boot-starter-logging",
             "org.springframework.boot:spring-boot-configuration-processor"
     )
 
-    compile project(
-            ':iot-components:spring-boot-starter-banner'
-    )
+    compile project(':iot-components:spring-boot-starter-banner')
+    compile project(':iot-components:spring-boot-starter-netty')
 }

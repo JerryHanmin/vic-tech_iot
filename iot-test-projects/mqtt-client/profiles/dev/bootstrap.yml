@@ -1,10 +1,10 @@
 server:
-  port: 19304
+  port: 19305
 spring:
   profiles:
     active: eureka_client,common
   application:
-      name: current-mqtt-data-gateway
+      name: mqtt-client
   cloud:
     config:
       name: common-config

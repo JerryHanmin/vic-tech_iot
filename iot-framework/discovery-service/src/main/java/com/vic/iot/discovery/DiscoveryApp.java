@@ -12,8 +12,8 @@ import org.springframework.cloud.netflix.eureka.server.EnableEurekaServer;
 @SpringBootApplication
 public class DiscoveryApp {
 
-	public static void main(String[] args) throws Exception {
-		new SpringApplicationBuilder().banner(new BuddhaBanner()).bannerMode(Banner.Mode.LOG).sources(DiscoveryApp.class).run(args);
-	}
+    public static void main(String[] args) throws Exception {
+        new SpringApplicationBuilder().banner(new BuddhaBanner()).bannerMode(Banner.Mode.LOG).sources(DiscoveryApp.class).run(args);
+    }
 
 }

@@ -18,6 +18,7 @@ public class Device extends BaseEntity {
     @Id
     private String deviceId = UUID.randomUUID().toString();
     private String name;
+    private String mac;
     private String tags;
     private String type;
     private String status;

@@ -1,0 +1,14 @@
+version = '1.0'
+jar {
+    baseName = 'spring-boot-starter-common'
+    version = '0.1.0'
+}
+
+dependencies {
+    compile(
+            "org.springframework.boot:spring-boot-starter",
+            "io.netty:netty-all:4.1.16.Final",
+            "com.google.protobuf:protobuf-java:3.0.0",
+            'org.mockito:mockito-core'
+    )
+}

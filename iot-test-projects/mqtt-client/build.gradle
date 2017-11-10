@@ -1,0 +1,19 @@
+version = '1.0'
+jar {
+    baseName = 'mqtt-client' + "-$profile"
+    version = '0.1.0'
+}
+
+dependencies {
+    compile(
+            "org.springframework.boot:spring-boot-starter-logging",
+            "org.springframework.boot:spring-boot-starter-integration",
+            "org.springframework.integration:spring-integration-stream",
+            "org.springframework.integration:spring-integration-mqtt",
+            "org.springframework.boot:spring-boot-configuration-processor"
+    )
+
+    compile project(
+            ':iot-components:spring-boot-starter-banner'
+    )
+}
