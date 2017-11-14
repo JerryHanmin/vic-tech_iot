@@ -17,4 +17,21 @@ buildscript {
 
 subprojects {
     apply plugin: 'com.moowork.node'
+
+    task npmBuild(type: NpmTask, dependsOn: npmInstall) {
+        group = 'node'
+        args = ['run', 'build']
+    }
+
+    task npmRun(type: NpmTask, dependsOn: npmInstall) {
+        group = 'node'
+        args = ['run', 'start']
+    }
+
+    task killNode() {
+        group = 'node'
+        String cmd = "taskkill /f /t /im node.exe"
+        def cmdResult = cmd.execute().text.trim()
+        println cmdResult
+    }
 }

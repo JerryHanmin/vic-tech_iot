@@ -1,19 +1,17 @@
 package com.vic.iot.gateway.handler;
 
+import io.netty.channel.ChannelHandler;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
 import io.netty.handler.timeout.IdleState;
 import io.netty.handler.timeout.IdleStateEvent;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.stereotype.Component;
 
 /**
  * 连接空闲Handler
  */
-@Component
 @Slf4j
-@Qualifier("idleTimeoutHandler")
+@ChannelHandler.Sharable
 public class IdleTimeoutHandler extends ChannelInboundHandlerAdapter {
 
     @Override

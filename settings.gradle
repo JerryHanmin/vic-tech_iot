@@ -5,6 +5,7 @@ include 'iot-components:spring-boot-starter-common'
 include 'iot-components:spring-boot-starter-banner'
 include 'iot-components:spring-boot-starter-swagger'
 include 'iot-components:spring-boot-starter-netty'
+include 'iot-components:spring-boot-starter-akka'
 
 include 'iot-framework'
 include 'iot-framework:discovery-service'

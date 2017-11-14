@@ -7,8 +7,10 @@ jar {
 dependencies {
     compile(
             "org.springframework.boot:spring-boot-starter",
+            'org.springframework.boot:spring-boot-starter-aop',
             "io.netty:netty-all:4.1.16.Final",
-            "com.google.protobuf:protobuf-java:3.0.0",
+//            "com.google.protobuf:protobuf-java:3.0.0",
+            "com.google.guava:guava",
             'org.mockito:mockito-core'
     )
 }

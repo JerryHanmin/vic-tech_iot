@@ -1,4 +1,4 @@
-package com.vic.iot.netty.server.repository;
+package com.vic.iot.netty.repository;
 
 import io.netty.channel.Channel;
 

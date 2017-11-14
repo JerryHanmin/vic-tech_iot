@@ -1,0 +1,12 @@
+version = '1.0'
+jar {
+    baseName = 'spring-boot-starter-akka'
+    version = '0.1.0'
+}
+
+dependencies {
+    compile(
+            "org.springframework.boot:spring-boot-starter",
+            "com.typesafe.akka:akka-actor_2.12:2.5.6"
+    )
+}

@@ -6,11 +6,8 @@ jar {
 
 dependencies {
     compile(
-            "org.springframework.boot:spring-boot-starter-logging",
-            "org.springframework.boot:spring-boot-starter-integration",
-            "org.springframework.integration:spring-integration-stream",
-            "org.springframework.integration:spring-integration-mqtt",
-            "org.springframework.boot:spring-boot-configuration-processor"
+            "org.springframework.boot:spring-boot-starter",
+            "org.eclipse.paho:org.eclipse.paho.client.mqttv3:1.1.0"
     )
 
     compile project(

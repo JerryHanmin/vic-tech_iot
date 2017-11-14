@@ -39,10 +39,10 @@ module.exports = {
                 'style-loader',
                 'css-loader',
                 {
-                    loader:'postcss-loader',
-                    options:{
-                        config:{
-                            path:path.resolve(__dirname,'./postcss.config.js')
+                    loader: 'postcss-loader',
+                    options: {
+                        config: {
+                            path: path.resolve(__dirname, './postcss.config.js')
                         }
                     }
                 }
@@ -62,6 +62,8 @@ module.exports = {
     devServer: {
         contentBase: path.join(__dirname, '../dist'),
         historyApiFallback: true,
+        port: 3000,
+        open: true,
         proxy: {
             '/api': {
                 target: devRoot,
