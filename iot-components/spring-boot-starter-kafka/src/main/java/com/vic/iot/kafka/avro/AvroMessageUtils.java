@@ -24,7 +24,7 @@ import java.lang.reflect.Method;
 @Slf4j
 public class AvroMessageUtils {
 
-    public static byte[] serializedBytes(Schema schema, Object object) throws Exception {
+    public static byte[] serializer(Schema schema, Object object) throws Exception {
         GenericRecord payload = new GenericData.Record(schema);
 
         // Put data in that genericrecord object
@@ -44,19 +44,18 @@ public class AvroMessageUtils {
         return out.toByteArray();
     }
 
-    public static JSONObject bytesToJson(Schema schema, byte[] content) {
+    public static <T> T deserializer(Schema schema, byte[] content, Class clazz) {
         DatumReader<GenericRecord> reader = new SpecificDatumReader<>(schema);
         Decoder decoder = DecoderFactory.get().binaryDecoder(content, null);
         GenericRecord message = null;
         try {
             message = reader.read(null, decoder);
         } catch (IOException e) {
-            log.error("bytesToJson error", e);
-            return null;
+            log.error("deserializer error", e);
         }
 
         assert message != null;
-        return JSONObject.fromObject(message.toString());
+        return (T) JSONObject.toBean(JSONObject.fromObject(message.toString()), clazz);
     }
 
     private static Object getFieldValueByName(String fieldName, String fieldType, Object o) {
@@ -65,6 +64,7 @@ public class AvroMessageUtils {
 
         if (StringUtils.equals("boolean", fieldType))
             getter = "is" + firstLetter + fieldName.substring(1);
+
         Method method = null;
         try {
             method = o.getClass().getMethod(getter);
@@ -72,6 +72,7 @@ public class AvroMessageUtils {
             log.error("no such method : [{0}]" + getter, e);
             return null;
         }
+
         Object value = null;
         try {
             value = method.invoke(o);

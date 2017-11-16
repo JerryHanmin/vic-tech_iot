@@ -16,7 +16,7 @@ public class KafkaProducer {
 
     public void send(String topic, Schema schema, Object message) {
         try {
-            kafkaTemplate.send(topic, AvroMessageUtils.serializedBytes(schema, message));
+            kafkaTemplate.send(topic, AvroMessageUtils.serializer(schema, message));
         } catch (Exception e) {
             log.error("send kafka message error , error is : " + e.getMessage(), e);
         }

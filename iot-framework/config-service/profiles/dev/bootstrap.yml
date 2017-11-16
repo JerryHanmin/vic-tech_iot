@@ -6,6 +6,6 @@ spring:
       server:
         git:
           uri: https://github.com/JerryHanmin/vic-tech-config.git
-          username: JerryHanmin
-          password: han3262302
+#          username: JerryHanmin
+#          password: {password}
           searchPaths: applications,i18n,avros
