@@ -6,7 +6,8 @@ jar {
 
 dependencies {
     compile(
-            "org.springframework.boot:spring-boot-starter",
+            "org.springframework.cloud:spring-cloud-starter",
+            "org.springframework.boot:spring-boot-configuration-processor",
             'org.springframework.boot:spring-boot-starter-aop',
             "io.netty:netty-all:4.1.16.Final",
 //            "com.google.protobuf:protobuf-java:3.0.0",

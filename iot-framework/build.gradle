@@ -8,6 +8,7 @@ subprojects {
 //                "org.springframework.boot:spring-boot-devtools"
 //        )
         compile(
+                "org.springframework.cloud:spring-cloud-starter",
                 "org.springframework.cloud:spring-cloud-starter-eureka"
         )
 

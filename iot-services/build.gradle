@@ -11,6 +11,7 @@ subprojects {
         compile project(':iot-components:spring-boot-starter-common')
 
         compile(
+                "org.springframework.cloud:spring-cloud-starter",
                 "org.springframework.boot:spring-boot-starter-web",
                 "org.springframework.cloud:spring-cloud-starter-config",
                 "org.springframework.cloud:spring-cloud-starter-eureka",
