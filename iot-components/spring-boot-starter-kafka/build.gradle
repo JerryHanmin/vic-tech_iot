@@ -1,0 +1,16 @@
+version = '1.0'
+jar {
+    baseName = 'spring-boot-starter-kafka'
+    version = '0.1.0'
+}
+
+dependencies {
+    compile(
+            "org.springframework.cloud:spring-cloud-starter",
+            "org.springframework.boot:spring-boot-configuration-processor",
+            "org.springframework.boot:spring-boot-starter-web",
+            "org.springframework.kafka:spring-kafka",
+            "net.sf.json-lib:json-lib:2.4:jdk15",
+            "org.apache.avro:avro:1.8.2"
+    )
+}

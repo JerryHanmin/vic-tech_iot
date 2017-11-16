@@ -1,20 +1,20 @@
 server:
-  port: 19301
+  port: 19306
 
 spring:
   profiles:
-    active: eureka_client,oauth2,redis,common
+    active: eureka_client,redis,common,kafka
   application:
-      name: oauth2-service
+      name: data-cache-service
   cloud:
     config:
       name: common-config
       uri: http://dev.vm.host:19300/config
 service:
   swagger:
-    base_package: org.springframework.security.oauth2.provider.endpoint
+    base_package: com.vic.iot.cache.controller
     title: Spring Boot中使用Swagger2构建RESTful APIs
-    description: Oauth2鉴权服务
+    description: 数据缓存服务
     contact:
       name: hanmin
       email: han-min@hotmail.com
@@ -24,5 +24,10 @@ service:
     uri: http://dev.vm.host:8761/eureka/
   redis:
     host: dev.vm.host
-  mongodb:
-    uri: mongodb://dev.vm.host:27017/oauth
+    default_expire_time: 1000
+  kafka:
+    bootstrap-servers: dev.vm.host:9092
+    avro:
+      name:
+        - device_cache_add
+

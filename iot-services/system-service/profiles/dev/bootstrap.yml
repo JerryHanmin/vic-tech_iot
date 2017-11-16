@@ -9,7 +9,7 @@ spring:
   cloud:
     config:
       name: common-config
-      uri: http://192.168.118.131:19300/config
+      uri: http://dev.vm.host:19300/config
 
 service:
   swagger:
@@ -22,6 +22,6 @@ service:
       url: https://github.com/JerryHanmin/vic-tech_iot
     version: 1.0
   eureka:
-    uri: http://192.168.118.131:8761/eureka/
+    uri: http://dev.vm.host:8761/eureka/
   mongodb:
-    uri: mongodb://192.168.118.131:27017/system
+    uri: mongodb://dev.vm.host:27017/system

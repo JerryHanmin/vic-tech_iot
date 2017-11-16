@@ -8,19 +8,8 @@ spring:
   cloud:
     config:
       name: common-config
-      uri: http://192.168.118.131:19300/config
+      uri: http://dev.vm.host:19300/config
 
 service:
   eureka:
-    uri: http://192.168.118.131:8761/eureka/
-
-
-#  jwt  token验证方式的配置, 需添加 "org.springframework.security:spring-security-jwt" 包
-#security:
-#  oauth2:
-#    client:
-#      client-id: webapp
-#      client-secret: webapp
-#    resource:
-#      jwt:
-#        key-uri: http://localhost:19301/security/oauth/token_key
+    uri: http://dev.vm.host:8761/eureka/

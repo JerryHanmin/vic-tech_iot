@@ -1,0 +1,15 @@
+version = '1.0'
+jar {
+    baseName = 'data-cache-service' + "-$profile"
+    version = '0.1.0'
+}
+
+dependencies {
+    compile(
+            "org.springframework.boot:spring-boot-starter-data-redis"
+    )
+
+
+    compile project(':iot-components:spring-boot-starter-common')
+    compile project(':iot-components:spring-boot-starter-kafka')
+}

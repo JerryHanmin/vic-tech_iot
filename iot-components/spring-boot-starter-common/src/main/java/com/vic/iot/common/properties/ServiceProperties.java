@@ -56,6 +56,7 @@ public class ServiceProperties {
     @NoArgsConstructor
     public static class RedisProperties {
         private String host;
+        private Long defaultExpireTime;
     }
 
     @Data

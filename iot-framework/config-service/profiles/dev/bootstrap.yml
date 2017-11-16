@@ -8,4 +8,4 @@ spring:
           uri: https://github.com/JerryHanmin/vic-tech-config.git
           username: JerryHanmin
           password: han3262302
-          searchPaths: applications,i18n
+          searchPaths: applications,i18n,avros

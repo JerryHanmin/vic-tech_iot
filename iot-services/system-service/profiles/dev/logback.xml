@@ -31,7 +31,7 @@
 
     <!-- LOGSTASH -->
     <appender name="LOGSTASH" class="net.logstash.logback.appender.LogstashTcpSocketAppender">
-        <destination>192.168.118.131:4560</destination>
+        <destination>dev.vm.host:4560</destination>
         <encoder charset="UTF-8" class="net.logstash.logback.encoder.LogstashEncoder"/>
     </appender>
 
