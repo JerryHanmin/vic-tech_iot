@@ -17,7 +17,7 @@ import org.springframework.web.servlet.i18n.SessionLocaleResolver;
 import java.util.Locale;
 
 @Configuration
-@ConditionalOnProperty(name = "service.i18n.enabled", matchIfMissing = true)
+@ConditionalOnProperty(name = "service.i18n.enabled", havingValue = "true", matchIfMissing = true)
 public class I18nConfig extends WebMvcConfigurerAdapter {
 
     @Autowired

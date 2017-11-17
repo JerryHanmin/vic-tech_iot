@@ -24,7 +24,7 @@ public class IotKafkaProperties {
     @Data
     @NoArgsConstructor
     public static class AvroProperties {
-        private String configPath = "http://config-service/config/%s/default";
+        private String configPath = "http://config-service/config/%s-default.json";
         private String[] name = new String[]{};
         private Boolean enable = true;
     }

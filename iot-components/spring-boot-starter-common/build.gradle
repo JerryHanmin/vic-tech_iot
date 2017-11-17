@@ -7,8 +7,8 @@ jar {
 dependencies {
     compile(
             "org.springframework.cloud:spring-cloud-starter",
-            "org.springframework.cloud:spring-cloud-starter-config",
             "org.springframework.boot:spring-boot-configuration-processor",
+            "org.springframework.cloud:spring-cloud-starter-config",
             'org.springframework.boot:spring-boot-starter-data-rest',
             "org.springframework.boot:spring-boot-starter-hateoas"
     )

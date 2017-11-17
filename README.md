@@ -1,7 +1,8 @@
 # vic-tech_iot
 
-  一个测试项目，用来学习研究基于spring-cloud的java分布式架构。<br />
+  一个测试项目，用来学习研究基于spring-cloud的java分布式架构。  <br />
   功能以物联网相关业务为基础，大致包括
+  
   * 设备网关 -> 与硬件设备交互，至少实现TCP（MQTT协议），消息队列（kafka），http方式
   * 设备管理平台 -> 管理网站（前后端完全分离，后端微服务提供RESTFul的api，前端为React + Bootstarp响应式网站）
   

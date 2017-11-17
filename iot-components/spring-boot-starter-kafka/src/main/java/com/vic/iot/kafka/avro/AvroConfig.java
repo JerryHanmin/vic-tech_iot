@@ -28,19 +28,17 @@ public class AvroConfig {
     public KafkaAvroConfig kafkaAvroConfig() {
         KafkaAvroConfig kafkaAvroConfig = new KafkaAvroConfig();
         for (String name : iotKafkaProperties.getAvro().getName()) {
-            asyncRestTemplate.getForEntity(String.format(iotKafkaProperties.getAvro().getConfigPath(), name), ConfigDetails.class).addCallback(new ListenableFutureCallback<ResponseEntity<ConfigDetails>>() {
+            asyncRestTemplate.getForEntity(String.format(iotKafkaProperties.getAvro().getConfigPath(), name), String.class).addCallback(new ListenableFutureCallback<ResponseEntity<String>>() {
                 @Override
-                public void onSuccess(ResponseEntity<ConfigDetails> response) {
-                    ConfigDetails configDetails = response.getBody();
-                    log.info("get avro schema details : " + configDetails);
-                    AvroDetails avroDetails = configDetails.getPropertySources()[0].getSource();
-                    avroDetails.setSchema(new Schema.Parser().parse(configDetails.getPropertySources()[0].getSource().getAvsc()));
-                    kafkaAvroConfig.getAvroDetails().put(name, avroDetails);
+                public void onSuccess(ResponseEntity<String> response) {
+                    String schema = response.getBody();
+                    log.info("get avro schema : " + schema);
+                    kafkaAvroConfig.getAvroDetails().put(name, new Schema.Parser().parse(schema));
                 }
 
                 @Override
                 public void onFailure(Throwable t) {
-                    log.error(String.format("get avro [{0}] error , error is [{1}]", name, t.getMessage()), t);
+                    log.error("get avro [{0}] error , error is [{1}]", name, t.getMessage(), t);
                 }
             });
         }
