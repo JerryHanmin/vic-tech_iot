@@ -15,6 +15,9 @@
 |---|---
 |EMail|han-min@hotmail.com 
 
+
+![系统架构图](https://github.com/JerryHanmin/vic-tech_iot/blob/master/doc/images/framework_design.png)
+
   ****
 
 ## 已实现或正在进行中功能
